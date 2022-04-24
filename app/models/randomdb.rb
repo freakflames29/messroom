@@ -1,0 +1,2 @@
+class Randomdb < ApplicationRecord
+end
