@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+<div class="images">
+  
+<% @pin.images.each do |image| %>
+  <%= image_tag image  %>
+<% end -%>
+</div>
+<p>
+  <strong>Title:</strong>
+  <%= @pin.title %>
+</p>
+
+<p>
+  <strong>Desc:</strong>
+  <%= @pin.desc %>
+</p>
+
+<%= link_to 'Edit', edit_pin_path(@pin) %> |
+<%= link_to 'Back', pins_path %>

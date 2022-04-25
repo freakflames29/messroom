@@ -1,6 +1,24 @@
 <h1>Random#new</h1>
+<% if @random %>
+	
 <%= form_for @random,url:find_path do |f| %>
 	<%= f.text_field :name,placeholder:'name' %>
-	
-	<%= f.submit %>
+	<%= f.text_field :location,placeholder:'location' %>
+	<%= f.number_field :price,placeholder:'price' %>
+	<%= f.text_field :mtype,placeholder:'type' %>
+	<%= f.submit 'Search' %>
+<% end %>
+
+<% end %>
+
+<% if @res and @res.size > 0%>
+	<h1>res found</h1>
+	<%  @res.each do |res| %>
+	<h2>Name: <%= res.name %></h2>
+	<h3>Location: <%= res.location %></h3>
+	<h3>Rs: <%= res.price %></h3>
+	<h3>type: <%= res.mtype %></h3>
+	<% end -%>
+<% else %>
+<h2>NO RECORD FOUND</h2>
 <% end %>
