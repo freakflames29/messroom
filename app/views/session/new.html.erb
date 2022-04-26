@@ -1,0 +1,10 @@
+<h1>signin</h1>
+<%= form_for :session, url:signin_path do |f| %>
+	<%= f.label :email %><br>
+	<%= f.email_field :email,placeholder:'Enter your email' %> <br>
+
+	<%= f.label :password %><br>
+	<%= f.password_field :password,placeholder:'Enter your password' %> <br>
+
+	<%= f.submit 'Signin' %>
+<% end -%>

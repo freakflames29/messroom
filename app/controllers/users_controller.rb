@@ -1,5 +1,9 @@
 class UsersController < ApplicationController
+
+  before_action :redirect_if_loggedin,only:[:new,:create]
+
   before_action :set_params,only: %i[show edit ]
+
   def index
   end
 
@@ -11,8 +15,8 @@ class UsersController < ApplicationController
     @user=User.new filter_params
     if @user.valid?
       if @user.save
-        flash[:win]='You signed up successfully'
-        redirect_to @user
+        flash[:win]='You signed up successfully ! signin to continue'
+        redirect_to signin_path
       end
     else
       render :new
