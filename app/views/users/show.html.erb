@@ -1,3 +1,6 @@
+<% if @user.is_owner %>
+	<h2>YOU ARE OWNER</h2>
+<% end %>
 <h1><%= @user.name %></h1>
 <p>Userrname: @<%= @user.username %></p>
 <p>Eamil: <%= @user.email %></p>

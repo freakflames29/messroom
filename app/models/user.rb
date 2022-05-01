@@ -17,5 +17,6 @@ class User < ApplicationRecord
   validates :state, presence: true
   validates :address, presence: true
   validates :pincode, presence: true
+  validates :adh, presence: true,length:{is:12}
 
 end
