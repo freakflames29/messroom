@@ -2,6 +2,11 @@ Rails.application.routes.draw do
  
 
 
+  get 'messes/new'
+  get 'messes/index'
+  get 'messes/create'
+  get 'messes/update'
+  get 'messes/destroy'
   resources :users,except:[:new]
   get 'signup',to:'users#new'
   # resources :pins
@@ -18,6 +23,12 @@ Rails.application.routes.draw do
   #owner routes
   get 'signup_owner',to:'users#mess_owner'
   post 'signup_owner',to:'users#mess_owner_create' 
+
+  #mess create routes
+
+  resources :messes,except:[:new,:create]
+  get 'upload',to:'messes#new',as:'upload'
+  post 'upload',to:'messes#create'
 
  
 end

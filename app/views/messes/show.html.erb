@@ -1,0 +1,10 @@
+
+<div class="images" style="width:300px">
+	<% @mess.images.each do |img| %>
+		<%= image_tag img,style:'width:100%' %>
+	<% end %>
+
+</div>
+<h1><%= @mess.title %></h1>
+<p><%= @mess.description %></p>
+<h3>Price:<%= @mess.price %> Rs /Person</h3>

@@ -1,0 +1,31 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  price: 1
+  city: MyString
+  state: MyString
+  adrs: MyString
+  pincode: MyString
+  landmark: MyString
+  description: MyText
+  service_boys_only: false
+  service_girls_only: false
+  student_boys_only: false
+  student_girls_only: false
+  for_all: false
+  room_available: false
+
+two:
+  price: 1
+  city: MyString
+  state: MyString
+  adrs: MyString
+  pincode: MyString
+  landmark: MyString
+  description: MyText
+  service_boys_only: false
+  service_girls_only: false
+  student_boys_only: false
+  student_girls_only: false
+  for_all: false
+  room_available: false

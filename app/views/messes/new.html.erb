@@ -1,0 +1,57 @@
+<h1>Upload mess info</h1>
+<%= form_for @mess,url:upload_path do |f|  %>
+	<%= f.label :title %> <br>
+	<%= f.text_field :title,placeholder:'Write the title',required:true %> <br> <br>
+
+	<%= f.label :description %><br>
+	<%= f.text_area :description,rows:5,placeholder:'Write description',required:true %> <br><br>
+
+	<%= f.label :price %> /Person <br>
+	<%= f.number_field :price ,placeholder:'Enter price'%> <br><br>
+
+	<%= f.label :adrs,"Address" %> <br>
+	<%= f.text_field :adrs,placeholder:'Enter your address',required:true %> <br><br>
+
+	<%= f.label :state %> <br>
+	<%= f.text_field :state,placeholder:'Enter your state',required:true %> <br><br>
+
+	<%= f.label :city %> <br>
+	<%= f.text_field :city,placeholder:'Enter your city',required:true %> <br><br>
+
+	<%= f.label :landmark %> <br>
+	<%= f.text_field :landmark,placeholder:'Enter your landmark',required:true %> <br><br>
+
+	<%= f.label :pincode %> <br>
+	<%= f.number_field :pincode,placeholder:'Enter your pincode',required:true %> <br><br>
+
+
+	<%= f.label :service_boys_only,"Only for service boys" %>  <br>
+	<%= f.radio_button :service_boys_only,true,value:true,required:true %>Yes
+	<%= f.radio_button :service_boys_only,false,value:false,required:true %>No <br><br>
+
+	<%= f.label :service_girls_only,"Only for service girls" %>  <br>
+	<%= f.radio_button :service_girls_only,true,value:true,required:true %>Yes
+	<%= f.radio_button :service_girls_only,false,value:false,required:true %>No <br><br>
+
+	<%= f.label :student_boys_only,"Only for student boys" %>  <br>
+	<%= f.radio_button :student_boys_only,true,value:true,required:true %>Yes
+	<%= f.radio_button :student_boys_only,false,value:false,required:true %>No <br><br>
+
+	<%= f.label :student_girls_only,"Only for student girls" %>  <br>
+	<%= f.radio_button :student_girls_only,true,value:true,required:true %>Yes
+	<%= f.radio_button :student_girls_only,false,value:false,required:true %>No <br><br>
+
+	<%= f.label :for_all,"For all" %>  <br>
+	<%= f.radio_button :for_all,true,value:true,required:true %>Yes
+	<%= f.radio_button :for_all,false,value:false,required:true %>No <br><br>
+
+	<%= f.label :room_available,"Rooms are available" %>  <br>
+	<%= f.radio_button :room_available,true,value:true,required:true %>Yes
+	<%= f.radio_button :room_available,false,value:false,required:true %>No <br><br>
+
+	<%= f.label :images %>
+    <%= f.file_field :images,multiple:true %>
+
+	<%= f.submit 'Upload' %>
+
+<% end -%>
