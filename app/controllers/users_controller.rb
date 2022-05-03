@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 
-  before_action :redirect_if_loggedin,only:[:new,:create]
+  before_action :redirect_if_loggedin,only:[:new,:create,:mess_owner,:mess_owner_create]
 
   before_action :set_params,only: %i[show edit ]
 

@@ -6,6 +6,9 @@
 
   <%= f.label :username %> (<em>minimum is 6 charectors</em>)<br><br>
   <%= f.text_field :username,placeholder:"Your username" ,required: true%> <br><br>
+   
+   <%= f.label :email %> <br><br>
+  <%= f.email_field :email,placeholder:"Your email" ,required: true%> <br><br>
 
   <%= f.label :password %> <br>
   <%= f.password_field :password,required: true %> <br>
@@ -17,8 +20,6 @@
   <%= f.radio_button :gender,'male',value:'MALE',required: true %> Male
   <%= f.radio_button :gender,'female',value:'FEMALE',required: true %> Female <br>
 
-   <%= f.label :email %> <br><br>
-  <%= f.text_field :email,placeholder:"Your email" ,required: true%> <br><br>
 
   <%= f.label :city %> <br><br>
   <%= f.text_field :city,placeholder:"Your city" ,required: true%> <br><br>
