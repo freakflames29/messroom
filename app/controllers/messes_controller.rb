@@ -1,44 +1,46 @@
 class MessesController < ApplicationController
-  before_action :require_user,only:[:new,:create]
-  
+  before_action :require_user, only: %i[new create]
+
   def index
-    @messes=Mess.all
+    @messes = Mess.all
   end
 
   def new
-    @mess=Mess.new
+    @mess = Mess.new
   end
 
-
   def create
-    @mess=Mess.new filter_params
+    @mess = Mess.new filter_params
     @mess.user_id = current_user.id
+    puts "------------------------------_____________________$#{@mess.images.size}$-------"
     if @mess.valid?
 
-      if @mess.save
+      if @mess.images.size > 6
+        flash[:fail] = 'You can only upload 5 images'
+        render :new
+      elsif @mess.save
         redirect_to @mess
       else
-        render plain:'Not saved'
+        render plain: 'Error occured'
       end
 
-      else
-        render plain:'You fucked it up'
+    else
+      render :new
     end
   end
 
-  def update
-  end
+  def update; end
 
   def show
-    @mess=Mess.find params[:id]
+    @mess = Mess.find params[:id]
   end
 
-  def destroy
-  end
+  def destroy; end
 
   private
-  def filter_params
 
-      params.require(:mess).permit(:title,:description,:price,:adrs,:city,:state,:landmark,:pincode,:service_boys_only,:service_girls_only,:student_boys_only,:student_girls_only,:for_all,:room_available,images:[])
+  def filter_params
+    params.require(:mess).permit(:title, :description, :price, :adrs, :city, :state, :landmark, :pincode, :service_boys_only,
+                                 :service_girls_only, :student_boys_only, :student_girls_only, :for_all, :room_available, images: [])
   end
 end
