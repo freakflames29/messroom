@@ -3,6 +3,8 @@
 <%= link_to 'Signup',signup_path %>
 <%= link_to 'Signin',signin_path %>
 <% if logged_in? %>
-<%= link_to 'Signout',signout_path,method: :delete,data:{confirm:'are you sure?'} %>
+	<%= link_to 'Signout',signout_path,method: :delete,data:{confirm:'are you sure?'} %>
 	
 <% end %>
+
+<%= link_to 'Messes',messes_path %>

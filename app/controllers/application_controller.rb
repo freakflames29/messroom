@@ -28,4 +28,13 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def check_owner_profile
+    if logged_in?
+      if !current_user.is_owner
+        flash[:fail]='You need a owner account to upload your mess info!'
+        redirect_to root_path
+      end
+    end
+  end
+
 end

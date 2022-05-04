@@ -1,5 +1,6 @@
 class MessesController < ApplicationController
-  before_action :require_user, only: %i[new create]
+  before_action :check_owner_profile, only: %i[new create]
+  before_action :require_user,only:[:show_number]
 
   def index
     @messes = Mess.all
@@ -34,6 +35,17 @@ class MessesController < ApplicationController
   def show
     @mess = Mess.find params[:id]
   end
+
+  def show_number 
+    @mess=Mess.find params[:id]
+    @mess_owner=@mess.user
+    render :show
+    # redirect_to @mess
+
+  end
+
+
+
 
   def destroy; end
 

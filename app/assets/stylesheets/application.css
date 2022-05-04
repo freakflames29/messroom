@@ -23,6 +23,7 @@
 {
     width: 100%;
     margin-right: 10px;
-    border: 2px solid;
-    border-radius: 5px;
+    /*border: 2px solid;*/
+    box-shadow: 1px 1px 8px #bbb;
+    border-radius: 15px;
 }

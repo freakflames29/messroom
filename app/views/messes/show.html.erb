@@ -9,3 +9,34 @@
 <h1><%= @mess.title %></h1>
 <p><%= @mess.description %></p>
 <h3>Price:<%= @mess.price %> Rs /Person</h3>
+
+<% if @mess.service_boys_only %>
+	<h3>for service boys</h3>
+<% end %>
+
+<% if @mess.service_girls_only %>
+	<h3>for  service girls</h3>
+<% end %>
+
+<% if @mess.student_boys_only %>
+	<h3>for student boys</h3>
+<% end %>
+
+<% if @mess.student_girls_only %>
+	<h3>for student girls</h3>
+<% end %>
+
+<% if @mess.for_all %>
+	<h3>for all</h3>
+<% end %>
+
+<% if @mess.room_available %>
+	<h3>Rooms available</h3>
+<% end %>
+
+
+<% if !logged_in? %>
+	<%= link_to 'signin to contact the owner',signin_path %>
+	<% else %>
+	<h3><%= @mess.user.phone %></h3>
+<% end %>

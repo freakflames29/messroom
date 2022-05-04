@@ -19,6 +19,8 @@ Rails.application.routes.draw do
   post 'signin',to:'session#create'
   delete 'signout',to:'session#destroy'
 
+  post 'signin?redirect=:url',to:'session#xyz',as:'signred'
+
 
   #owner routes
   get 'signup_owner',to:'users#mess_owner'
@@ -29,6 +31,10 @@ Rails.application.routes.draw do
   resources :messes,except:[:new,:create]
   get 'upload',to:'messes#new',as:'upload'
   post 'upload',to:'messes#create'
+
+  #show phone number
+
+  post 'shownumber/:id',to:'messes#show_number',as:'shownumber'
 
  
 end
