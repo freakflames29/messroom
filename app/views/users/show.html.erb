@@ -5,3 +5,12 @@
 <p>Userrname: @<%= @user.username %></p>
 <p>Eamil: <%= @user.email %></p>
 <p>Gender: <%= @user.gender %></p>
+
+<h3> messes by this user</h3>
+<% if @user.messes.size > 0  %>
+	<% @user.messes.each do |mess| %>
+		
+		<p><%= link_to mess.title,mess_path(mess) %></p>
+		
+	<% end %>
+<% end %>

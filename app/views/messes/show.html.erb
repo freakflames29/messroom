@@ -5,6 +5,7 @@
 	<% end %>
 
 </div>
+<h3>uploaded by: <%= link_to("@"+@mess.user.username,user_path(@mess.user)) if @mess.user %></h3>
 <h1><%= @mess.title %></h1>
 <p><%= @mess.description %></p>
 <h3>Price:<%= @mess.price %> Rs /Person</h3>

@@ -1,5 +1,8 @@
 class MessesController < ApplicationController
+  before_action :require_user,only:[:new,:create]
+  
   def index
+    @messes=Mess.all
   end
 
   def new
@@ -9,6 +12,7 @@ class MessesController < ApplicationController
 
   def create
     @mess=Mess.new filter_params
+    @mess.user_id = current_user.id
     if @mess.valid?
 
       if @mess.save

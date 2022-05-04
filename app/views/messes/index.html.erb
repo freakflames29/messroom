@@ -1,2 +1,4 @@
-<h1>Messes#index</h1>
-<p>Find me in app/views/messes/index.html.erb</p>
+<h1>All messes</h1>
+<% @messes.each do |m| %>
+	<h2><%= link_to m.title,mess_path(m) %></h2>
+<% end -%>
