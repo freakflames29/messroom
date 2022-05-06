@@ -27,3 +27,11 @@
     box-shadow: 1px 1px 8px #bbb;
     border-radius: 15px;
 }
+.badge
+{
+    background-color: #30783c;
+    padding: 10px;
+    text-align: center;
+    border-radius: 10px;
+    color: white;
+}

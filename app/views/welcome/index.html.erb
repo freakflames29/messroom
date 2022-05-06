@@ -4,7 +4,16 @@
 <%= link_to 'Signin',signin_path %>
 <% if logged_in? %>
 	<%= link_to 'Signout',signout_path,method: :delete,data:{confirm:'are you sure?'} %>
+	<hr>
+	<% if current_user.is_owner %>
+		<%= link_to 'Upload mess',upload_path  %>
+	<% end %>
+
+<hr>
+	
+	<%= link_to 'My account',user_path(current_user)  %>
 	
 <% end %>
 
 <%= link_to 'Messes',messes_path %>
+
