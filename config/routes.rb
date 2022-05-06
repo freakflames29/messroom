@@ -2,6 +2,10 @@ Rails.application.routes.draw do
  
 
 
+  # get 'reviews/new'
+  post 'mess/:id/review_post' ,to:'reviews#create',as:'review_post'
+  get 'reviews/index'
+
   get 'messes/new'
   get 'messes/index'
   get 'messes/create'

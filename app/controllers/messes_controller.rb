@@ -34,6 +34,10 @@ class MessesController < ApplicationController
 
   def show
     @mess = Mess.find params[:id]
+
+    @review=Review.new
+
+    @all_reviews = @mess.reviews.all
   end
 
   def show_number 

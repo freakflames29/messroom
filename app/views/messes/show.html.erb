@@ -38,6 +38,32 @@
 <% if !logged_in? %>
 	<%= link_to 'signin to contact the owner',signin_path %>
 	<% else %>
-	<h3><%= @mess.user.phone %></h3>
+	<h3><%= @mess.user.phone if @mess.user%></h3>
 <% end %>
 
+
+	
+<% if logged_in? %>
+
+<%= form_for @review,url:review_post_path do |f| %>
+	<%= f.label :body,'Write review' %> <br>
+	<%= f.text_area :body,placeholder: 'Write your review' %> <br>
+	<%= f.submit 'post' %>
+<% end %>
+<% else %>
+<%= link_to 'signin to review', signin_path %>
+<% end %>
+
+<% if @all_reviews.size > 0 %>
+	
+<h3>All reviews</h3>
+<% else %>
+<h3>There is no review for this mess!</h3>
+<% end %>
+
+<% @all_reviews.each do |review| %>
+	<span>@<%= review.user.username %> | <b> <%= review.body %> </b></span> 
+	<!-- <span></span> -->
+<% end %>
+
+<hr>

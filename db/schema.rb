@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_05_04_112913) do
+ActiveRecord::Schema.define(version: 2022_05_06_143006) do
 
   create_table "active_storage_attachments", charset: "utf8mb4", force: :cascade do |t|
     t.string "name", null: false
@@ -77,6 +77,16 @@ ActiveRecord::Schema.define(version: 2022_05_04_112913) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "reviews", charset: "utf8mb4", force: :cascade do |t|
+    t.text "body"
+    t.bigint "mess_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["mess_id"], name: "index_reviews_on_mess_id"
+    t.index ["user_id"], name: "index_reviews_on_user_id"
+  end
+
   create_table "users", charset: "utf8mb4", force: :cascade do |t|
     t.string "username"
     t.string "email"
@@ -97,4 +107,6 @@ ActiveRecord::Schema.define(version: 2022_05_04_112913) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "messes", "users"
+  add_foreign_key "reviews", "messes"
+  add_foreign_key "reviews", "users"
 end
