@@ -17,3 +17,14 @@
 
 <%= link_to 'Messes',messes_path %>
 
+<hr><hr>
+
+<%= form_for :search,url:search_path,method: :get do |f| %>
+	<%= f.text_field :landmark,placeholder:'search mess by landmark here' %>
+	<%= f.text_field :city,placeholder:'search mess by city here' %>
+	<%= f.number_field :price,placeholder:'enter price' %>
+
+	<%= f.select :boys_or_girls,['--select--','for boys','for girls','for all'] %>
+
+	<%= f.submit 'Search' %>
+<% end %>

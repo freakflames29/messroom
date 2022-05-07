@@ -40,5 +40,9 @@ Rails.application.routes.draw do
 
   post 'shownumber/:id',to:'messes#show_number',as:'shownumber'
 
+  #search action
+
+  get 'search',to:'welcome#search'
+
  
 end

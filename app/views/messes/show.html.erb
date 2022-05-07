@@ -8,6 +8,8 @@
 <h3>uploaded by: <%= link_to("@"+@mess.user.username,user_path(@mess.user)) if @mess.user %></h3>
 <h1><%= @mess.title %></h1>
 <p><%= @mess.description %></p>
+<p><%= @mess.city %></p>
+<p><%= @mess.state %></p>
 <h3>Price:<%= @mess.price %> Rs /Person</h3>
 
 <% if @mess.service_boys_only %>

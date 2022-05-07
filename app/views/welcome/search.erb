@@ -1,0 +1,8 @@
+<h1>search result for </h1>
+
+<% @search.each do |s| %>
+	<p>
+	<%= link_to s.title,mess_path(s) %> | 
+	<b><%= s.landmark %></b>	
+	</p>
+<% end %>
