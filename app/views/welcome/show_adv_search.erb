@@ -1,0 +1,21 @@
+<h2>hi advance search done here</h2>
+
+<%= form_for :search,url:advance_search_path,method: :get do |f| %>
+
+	<%= f.label :landmark %>
+	<%= f.text_field :landmark,placeholder:'search mess by landmark here' ,required:true%> <br>
+	<%= f.label :city %>
+
+	<%= f.text_field :city,placeholder:'search mess by city here' ,required:true%><br>
+
+	<%= f.label :min_price %>
+	<%= f.number_field :min_price,placeholder:'enter min_price',required:true %><br>
+
+	<%= f.label :max_price %>
+	<%= f.number_field :max_price,placeholder:'enter max_price',required:true %><br>
+
+	<%= f.label :boys_or_girls,'Mess for ' %>
+	<%= f.select :boys_or_girls,['--select--','service boys','service girls','student boys','student girls','all'] ,required:true%>
+
+	<%= f.submit 'Search' %>
+<% end %>

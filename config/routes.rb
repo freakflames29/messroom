@@ -44,5 +44,8 @@ Rails.application.routes.draw do
 
   get 'search',to:'welcome#search'
 
+  get 'advance',to:'welcome#show_adv_search'
+  get 'advance_search',to:'welcome#advance_search'
+
  
 end

@@ -5,49 +5,75 @@ class WelcomeController < ApplicationController
 
   def search
 
-    # puts 
-    
-    if !params[:search][:city].nil? and !params[:search][:landmark].nil? and !params[:search][:price].nil? and !params[:search][:boys_or_girls].eql?('--select--')
+    landmark = params[:search][:landmark]
+    # price = params[:search][:price]
+    city = params[:search][:city]
+    # boys_or_girls = params[:search][:boys_or_girls]
 
-      if params[:search][:boys_or_girls].eql?('for boys')
-
-          @search = Mess.where('landmark LIKE ? and city LIKE ? and price = ? and (service_boys_only = 1 or student_boys_only = 1)','%'+params[:search][:landmark]+'%','%'+params[:search][:city]+'%',params[:search][:price])
-
-      elsif params[:search][:boys_or_girls].eql?('for girls')
-
-          @search = Mess.where('landmark LIKE ? and city LIKE ? and price = ? and (service_girls_only = 1 or student_girls_only = 1)','%'+params[:search][:landmark]+'%','%'+params[:search][:city]+'%',params[:search][:price])
-
-      elsif params[:search][:boys_or_girls].eql?('for all')
-
-          @search = Mess.where('landmark LIKE ? and city LIKE ? and price = ? and for_all = 1','%'+params[:search][:landmark]+'%','%'+params[:search][:city]+'%',params[:search][:price])
+    puts "YES IT IS NIL"   if landmark.nil?
 
 
-      end
+    if !landmark.size.zero?   and !city.size.zero?   
 
-       # @search = Mess.where('landmark LIKE ? and city LIKE ? and price = ?','%'+params[:search][:landmark]+'%','%'+params[:search][:city]+'%','%'+params[:search][:price]+'%')
-     
-     elsif !params[:search][:city].nil? and !params[:search][:landmark].nil? and !params[:search][:price].nil? and params[:search][:boys_or_girls].eql?('--select--')
+      @search = Mess.where('landmark LIKE ? city LIKE  ? ','%'+landmark+'%','%'+city+'%')
 
-       @search = Mess.where('landmark LIKE ? and city LIKE ? and price = ?','%'+params[:search][:landmark]+'%','%'+params[:search][:city]+'%',params[:search][:price])
+    elsif !landmark.size.zero?
 
-     elsif !params[:search][:city].nil? and !params[:search][:landmark].nil?
-         @search = Mess.where('landmark LIKE ? and city LIKE ? ','%'+params[:search][:landmark]+'%','%'+params[:search][:city]+'%')
+      @search = Mess.where('landmark LIKE ?','%'+landmark+'%')
 
-      elsif !params[:search][:city].nil?
-         @search = Mess.where('city LIKE ? ','%'+params[:search][:city]+'%')
+    elsif !city.size.zero?   
 
-      elsif  !params[:search][:landmark].nil?
-         @search = Mess.where('landmark LIKE ? ','%'+params[:search][:landmark]+'%')
+      @search = Mess.where('city LIKE ?','%'+city+'%')
 
-      else
+    else
 
-        @search= Mess.all
-
-
-
+      @search = Mess.all
 
     end
 
-    # render plain:params
   end
+
+  def show_adv_search
+  end
+
+  def advance_search
+    landmark = params[:search][:landmark]
+    city = params[:search][:city]
+    min_price = params[:search][:min_price]
+    max_price = params[:search][:max_price]
+    boys_or_girls = params[:search][:boys_or_girls]
+
+    # render plain:params[:search]
+
+   if landmark.size.zero? || city.size.zero? || min_price.size.zero? || max_price.size.zero? || boys_or_girls.eql?('--select--')
+      flash[:warn] = 'Fill the filed correctly !'
+
+      render :show_adv_search
+
+    else
+
+      if boys_or_girls.eql?('service boys')
+        @search = Mess.where('landmark LIKE ? and city LIKE ? and price between ? and ? and service_boys_only = 1','%'+landmark+'%','%'+city+'%',min_price,max_price)
+
+        render 'search'
+
+      elsif boys_or_girls.eql?('service girls')
+        
+        @search = Mess.where('landmark LIKE ? and city LIKE ? and price between ? and ? and service_girls_only = 1','%'+landmark+'%','%'+city+'%',min_price,max_price) 
+        render 'search'
+
+      elsif boys_or_girls.eql?('student girls')
+        @search = Mess.where('landmark LIKE ? and city LIKE ? and price between ? and ? and student_girls_only = 1','%'+landmark+'%','%'+city+'%',min_price,max_price)
+        render 'search'
+
+      elsif boys_or_girls.eql?('student boys')
+        @search = Mess.where('landmark LIKE ? and city LIKE ? and price between ? and ? and student_boys_only = 1','%'+landmark+'%','%'+city+'%',min_price,max_price)
+        render 'search'
+
+      end
+
+   end
+
+  end
+
 end
