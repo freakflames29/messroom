@@ -1,31 +1,41 @@
-<h1> This is homepage</h1>
+<div class="hero_container">
+	<div class="hero_text">
+		<h1 class="logo_color">
+		Want to search mess ?
+			
+		</h1>
+	</div>
 
-<%= link_to 'Signup',signup_path %>
-<%= link_to 'Signin',signin_path %>
-<% if logged_in? %>
-	<%= link_to 'Signout',signout_path,method: :delete,data:{confirm:'are you sure?'} %>
-	<hr>
-	<% if current_user.is_owner %>
-		<%= link_to 'Upload mess',upload_path  %>
-	<% end %>
+	<div class="hero_search">
+		
 
-<hr>
-	
-	<%= link_to 'My account',user_path(current_user)  %>
-	
-<% end %>
+		<%= form_for :search,url:search_path,class:'search_form',method: :get do |f| %>
+			<span class="logo_color search_div_txt">You can search by</span >
+			<%= f.text_field :landmark,placeholder:'landmark' ,class:'field'%>
+			<span class="logo_color search_div_txt">or</span >
+			<%= f.text_field :city,placeholder:'by city' ,class:'field' %>
+			<%#= f.number_field :price,placeholder:'enter price' %>
 
-<%= link_to 'Messes',messes_path %>
+			<%#= f.select :boys_or_girls,['--select--','for boys','for girls','for all'] %>
+			<!-- <span class="logo_color search_div_txt">and click </span > -->
 
-<hr><hr>
+			<%= f.submit 'Go',class:'btn search_btn' %>
+		<% end %>
+		<span class="white_links">
+		<%= link_to 'Advance search',advance_path,class:'white_links'  %>
+			
+		</span>
+</div>
+</div>
 
-<%= form_for :search,url:search_path,method: :get do |f| %>
-	<%= f.text_field :landmark,placeholder:'search mess by landmark here' %>
-	<%= f.text_field :city,placeholder:'search mess by city here' %>
-	<%#= f.number_field :price,placeholder:'enter price' %>
 
-	<%#= f.select :boys_or_girls,['--select--','for boys','for girls','for all'] %>
+<div class="sub_hero_container">
+	<div class="sub_hero_titile">
+		<h1>Messes in your city</h1>
+	</div>
+</div>
 
-	<%= f.submit 'Search' %>
-<% end %>
-<%= link_to 'Advance search',advance_path  %>
+
+
+
+
