@@ -1,5 +1,19 @@
+
+<!-- <h1>mess owner</h1> -->
+
+<div class="header">
+	<h1 class="logo_color">Sign Up as owner</h1>
+</div>
+
 <%= render 'users/error',model_name:@mess_owner %>
 
-<h1>mess owner</h1>
 
-<%= render 'users/form',para:'Signup as owner',model_name: @mess_owner,owner:true %>
+<div class="signup_form_container">
+	
+	<div class="signup_form">
+		
+		<%#= render 'users/form',para:'Signup',model_name: @user,owner:false%>
+	<%= render 'users/form',para:'Signup as owner',model_name: @mess_owner,owner:true %>
+
+	</div>
+</div>

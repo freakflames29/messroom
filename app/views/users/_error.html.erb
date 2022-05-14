@@ -1,5 +1,16 @@
-<% if model_name.errors.any?%>
+
+
+<div class="errors__container">
+  
+
+<% if model_name.errors.any? %>
+  <div class="errors">
+    
+  <h1 class="errors__h1"><i class="fa-solid fa-triangle-exclamation"></i> Oops! there is something wrong.</h1>
   <% model_name.errors.full_messages.each do |msg| %>
-    <li><%= msg %></li>
+    <h3> ( <i class="fa-solid fa-exclamation"></i> ) <%= msg %></h3>
   <% end %>
+
 <% end %>
+  </div>
+</div>

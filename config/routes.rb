@@ -47,5 +47,7 @@ Rails.application.routes.draw do
   get 'advance',to:'welcome#show_adv_search'
   get 'advance_search',to:'welcome#advance_search'
 
+  get 'checkpoint',to:'welcome#check_user_type'
+
  
 end

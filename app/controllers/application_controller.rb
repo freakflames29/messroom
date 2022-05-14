@@ -34,6 +34,9 @@ class ApplicationController < ActionController::Base
         flash[:fail]='You need a owner account to upload your mess info!'
         redirect_to root_path
       end
+    else
+      flash[:fail]='You need to login first'
+      redirect_to root_path
     end
   end
 

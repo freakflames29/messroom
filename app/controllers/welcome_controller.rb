@@ -77,4 +77,9 @@ class WelcomeController < ApplicationController
 
   end
 
+
+  def check_user_type
+  end
+
+
 end

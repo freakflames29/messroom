@@ -1,5 +1,14 @@
-<h1>Sign up</h1>
+<div class="header">
+	<h1 class="logo_color">Sign Up</h1>
+</div>
 
 <%= render 'users/error',model_name:@user  %>
 
-<%= render 'users/form',para:'Signup',model_name: @user,owner:false%>
+<div class="signup_form_container">
+	
+	<div class="signup_form">
+		
+		<%= render 'users/form',para:'Signup',model_name: @user,owner:false%>
+
+	</div>
+</div>
