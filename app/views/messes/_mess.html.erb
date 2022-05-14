@@ -1,0 +1,38 @@
+<% @messes.each do |m| %>
+		<div class="single_mess">
+			<div class="mess_image">
+				<%= image_tag m.images.first %>
+			</div>
+			<div class="mess_info">
+				<h2 class="info_header"><%= link_to m.title.capitalize!,mess_path(m) %></h2>
+				<p class="desc"><%= m.description %></p>
+
+				<% if m.service_boys_only %>
+					<p class="badge serboy">Service boys</p>
+				<% end -%>
+
+				<% if m.service_girls_only%>
+					<p class="badge sergirl">Service girls</p>
+				<% end %>
+
+				<% if m.student_girls_only%>
+					<p class="badge sergirl">Student girls</p>
+				<% end %>
+
+				<% if m.student_boys_only%>
+					<p class="badge serboy">Student Boys</p>
+				<% end %>
+
+				<% if m.for_all %>
+					<p class="badge forall">For all</p>
+					
+				<% end %>
+
+
+			</div>
+			<div class="mess_footer">
+				<h3><i class="fa-solid fa-location-dot"></i> <%= m.city %> </h3>
+				<h3 class="badge price-badge">₹<%= m.price %>/-</h3>
+			</div>
+		</div>
+		<% end -%>

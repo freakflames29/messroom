@@ -1,4 +1,10 @@
-<h1>All messes</h1>
-<% @messes.each do |m| %>
-	<h2><%= link_to m.title,mess_path(m) %></h2>
-<% end -%>
+<div class="header">
+	<h1 class="logo_color">All messes</h1>
+</div>
+<div class="messes_container">
+	<div class="messes">
+			
+		<%= render 'messes/mess' %>
+		
+	</div>
+</div>

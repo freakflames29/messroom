@@ -1,6 +1,7 @@
 class WelcomeController < ApplicationController
   def index
-
+    @messes = Mess.where city:'kolkata'
+    @messes = @messes[0..2]
   end
 
   def search
