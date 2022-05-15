@@ -7,11 +7,32 @@
     <div class="mess_desc">
       <h1 class="logo_color"><%= @mess.title.capitalize %></h1>
       <p><%= @mess.description %></p> <br>
-      <p> <span class="badge"><b> Address:</b></span> <%= @mess.adrs.capitalize %> </p>
-      <p> <span class="badge"><b> State:</b></span>  <%= @mess.state.capitalize %> </p>
-      <p> <span class="badge"><b> City:</b></span>  <%= @mess.city.capitalize %> </p>
-      <p> <span class="badge"><b> Landmark:</b></span>  <%= @mess.landmark.capitalize %> </p>
+      <p> <span class="badge"><b><i class="fa-solid fa-address-card"></i> Address:</b></span> <%= @mess.adrs.capitalize %> </p>
+      <p> <span class="badge"><b> <i class="fa-solid fa-location-dot"></i> State:</b></span>  <%= @mess.state.capitalize %> </p>
+      <p> <span class="badge"><b><i class="fa-solid fa-city"></i> City:</b></span>  <%= @mess.city.capitalize %> </p>
+      <p> <span class="badge"><b> <i class="fa-solid fa-landmark"></i> Landmark:</b></span>  <%= @mess.landmark.capitalize %> </p>
+      <br>
+      <h2>Mess For</h2><br>
+      <% if @mess.service_boys_only %>
 
+      		 <span class="badge serboy"><b><i class="fa-solid fa-mars"></i> Service boys</b></span>
+      <% end %>
+      <% if @mess.student_boys_only %>
+      		 <span class="badge serboy"><b><i class="fa-solid fa-mars"></i> Student boys</b></span>
+      	
+      <% end %> 
+      <% if @mess.student_girls_only %>
+      		 <span class="badge sergirl"><b><i class="fa-solid fa-venus"></i> Student girls</b></span>
+      	
+      <% end %>
+      <% if @mess.service_girls_only %>
+      		 <span class="badge sergirl"><b><i class="fa-solid fa-venus"></i> Service girls</b></span><br>
+      	
+      <% end %> 
+      <% if @mess.for_all %>
+      		 <span class="badge forall"><b><i class="fa-solid fa-mars-and-venus"></i>For all</b></span>
+      	
+      <% end %>
 
     </div>
   </div>
@@ -27,8 +48,8 @@
         </div>
       <% else %>
         <% if @mess.user %>
-          <a href="tel:<%= @mess.user.phone %>" class='btn info_btn'>Call the owner</a>
-          <a href="mailto:<%= @mess.user.email %>" class='btn info_btn light_btn'>Email the owner</a>
+          <a href="tel:<%= @mess.user.phone %>" class='btn info_btn'><i class="fa-solid fa-phone"></i> Call the owner</a>
+          <a href="mailto:<%= @mess.user.email %>" class='btn info_btn light_btn'><i class="fa-solid fa-envelope"></i> Email the owner</a>
         <% end -%>
       <% end %>
     </div>
@@ -39,7 +60,7 @@
     <%= form_for @review,url:review_post_path do |f| %>
       <%= f.label :body,'Write review',class:'form_label' %> <br>
       <%= f.text_area :body,placeholder: 'Write your review' ,class:'form_field',required:true%> <br>
-      <%= f.submit 'post' ,class:'btn mt post_btn'%>
+      <%= f.button 'post <i class="fa-solid fa-paper-plane"></i>'.html_safe ,class:'btn mt post_btn',type: :submit%>
     <% end %>
   <% else %>
     <%= link_to 'signin to review', signin_path , class:'btn'%>
