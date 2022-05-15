@@ -1,71 +1,72 @@
+<!-- <h3></h3> -->
+<div class="mess_show_container">
+  <div class="mess_left_container">
+    <div class="mess_image">
+      <%= image_tag @mess.images.first,class:'msimg'%>
+    </div>
+    <div class="mess_desc">
+      <h1 class="logo_color"><%= @mess.title.capitalize %></h1>
+      <p><%= @mess.description %></p> <br>
+      <p> <span class="badge"><b> Address:</b></span> <%= @mess.adrs.capitalize %> </p>
+      <p> <span class="badge"><b> State:</b></span>  <%= @mess.state.capitalize %> </p>
+      <p> <span class="badge"><b> City:</b></span>  <%= @mess.city.capitalize %> </p>
+      <p> <span class="badge"><b> Landmark:</b></span>  <%= @mess.landmark.capitalize %> </p>
 
-<div class="images" style="width:300px">
-	<% @mess.images.each do |img| %>
-		<%= image_tag img,style:'width:100%' %>
-	<% end %>
 
+    </div>
+  </div>
+  <div class="mess_right_container">
+    <div class="mess_contact">
+      <% if @mess.user %>
+        <p class="info_ps"> Uploaded by <span class="logo_color">	<%= link_to "@"+@mess.user.username,user_path(@mess.user) %></span></p>
+      <% end %>
+      <p class="info_ps price">₹<%= @mess.price %>/Person</p>
+      <% if !logged_in? %>
+        <div class="error_for_not_login">
+          <p class="info_ps">Signin to contact the owner <%= link_to 'Signin',signin_path %></p>
+        </div>
+      <% else %>
+        <% if @mess.user %>
+          <a href="tel:<%= @mess.user.phone %>" class='btn info_btn'>Call the owner</a>
+          <a href="mailto:<%= @mess.user.email %>" class='btn info_btn light_btn'>Email the owner</a>
+        <% end -%>
+      <% end %>
+    </div>
+  </div>
 </div>
-<h3>uploaded by: <%= link_to("@"+@mess.user.username,user_path(@mess.user)) if @mess.user %></h3>
-<h1><%= @mess.title %></h1>
-<p><%= @mess.description %></p>
-<p><%= @mess.city %></p>
-<p><%= @mess.state %></p>
-<h3>Price:<%= @mess.price %> Rs /Person</h3>
-
-<% if @mess.service_boys_only %>
-	<h3>for service boys</h3>
-<% end %>
-
-<% if @mess.service_girls_only %>
-	<h3>for  service girls</h3>
-<% end %>
-
-<% if @mess.student_boys_only %>
-	<h3>for student boys</h3>
-<% end %>
-
-<% if @mess.student_girls_only %>
-	<h3>for student girls</h3>
-<% end %>
-
-<% if @mess.for_all %>
-	<h3>for all</h3>
-<% end %>
-
-<% if @mess.room_available %>
-	<h3>Rooms available</h3>
-<% end %>
+<div class="write_review_container">
+  <% if logged_in? %>
+    <%= form_for @review,url:review_post_path do |f| %>
+      <%= f.label :body,'Write review',class:'form_label' %> <br>
+      <%= f.text_area :body,placeholder: 'Write your review' ,class:'form_field',required:true%> <br>
+      <%= f.submit 'post' ,class:'btn mt post_btn'%>
+    <% end %>
+  <% else %>
+    <%= link_to 'signin to review', signin_path , class:'btn'%>
+  <% end %>
+</div>
 
 
-<% if !logged_in? %>
-	<%= link_to 'signin to contact the owner',signin_path %>
-	<% else %>
-	<h3><%= @mess.user.phone if @mess.user%></h3>
-<% end %>
-
-
+<div class="all_reviews_container">
 	
-<% if logged_in? %>
-
-<%= form_for @review,url:review_post_path do |f| %>
-	<%= f.label :body,'Write review' %> <br>
-	<%= f.text_area :body,placeholder: 'Write your review' %> <br>
-	<%= f.submit 'post' %>
-<% end %>
-<% else %>
-<%= link_to 'signin to review', signin_path %>
-<% end %>
 
 <% if @all_reviews.size > 0 %>
-	
-<h3>All reviews</h3>
+
+  <h2 class="logo_color">All reviews</h2>
+
+	<% @all_reviews.each do |review| %>
+	<div class="review">
+	  <p class="username">@<%= review.user.username %></p> 
+
+	  <p><%= review.body %> </b></p>
+		
+	</div>
+	<% end %>
+
 <% else %>
-<h3>There is no review for this mess!</h3>
+
+  <h3>There is no review for this mess!</h3>
+
 <% end %>
 
-<% @all_reviews.each do |review| %>
-	<span>@<%= review.user.username %> | <b> <%= review.body %> </b></span> 
-	<!-- <span></span> -->
-<% end %>
-
-<hr>
+</div>

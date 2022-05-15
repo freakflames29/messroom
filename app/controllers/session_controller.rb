@@ -23,7 +23,7 @@ class SessionController < ApplicationController
 
   def destroy
     session[:user_id]=nil
-    redirect_to signup_path
+    redirect_to signin_path
   end
 
   def xyz 

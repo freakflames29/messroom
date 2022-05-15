@@ -19,7 +19,7 @@
 			<%#= f.select :boys_or_girls,['--select--','for boys','for girls','for all'] %>
 			<!-- <span class="logo_color search_div_txt">and click </span > -->
 
-			<%= f.submit 'Go',class:'btn search_btn' %>
+			<%= f.button '<i class="fa-solid fa-magnifying-glass"></i>'.html_safe,class:'btn search_btn',type: :submit %>
 		<% end %>
 		<span class="white_links">
 		<%= link_to 'Advance search',advance_path,class:'white_links'  %>

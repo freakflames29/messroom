@@ -14,10 +14,24 @@
 
 			<span>About</span>
 			<span>About</span>
-			<span>About</span>
+			<% if !logged_in? %>
+				
 			<a href="/checkpoint">
 				<span class="btn"><i class="fa-solid fa-user"></i>  Signup</span>
 			</a>
+			<% else %>
+			<span>About</span>
+			<% if current_user.is_owner %>
+
+			<%= link_to upload_path,class:'btn' do%>
+				<i class="fa-solid fa-house"></i> upload
+			<% end -%>
+				
+			<% end %>
+			<%= link_to  signout_path,method: :delete,class:'btn' do%>
+				<i class="fa-solid fa-arrow-right-from-bracket"></i> signout
+			<% end -%>
+			<% end %>
 			<%#= link_to 'Signup',signup_path,class:'btn' %>
 			<!-- <span class="btn">All messes</span> -->
 		</div>
