@@ -51,5 +51,6 @@ test:
 production:
   <<: *default
   database: findmess_production
+  encoding: utf8
   username: findmess
   password: <%= ENV['FINDMESS_DATABASE_PASSWORD'] %>
