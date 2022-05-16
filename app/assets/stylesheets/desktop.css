@@ -672,3 +672,20 @@ a{
     font-weight: 700;
     margin-bottom: 4px;
 }
+.card_btn
+{
+	width: 100%;
+    margin: auto;
+    margin-top: 19px;
+    color: #fff;
+    font-size: 20px;
+    text-align: center;
+}
+.card_btn a
+{
+	color: #fff;
+}
+.card_btn:hover a
+{
+	color: var(--blue-dark);
+}

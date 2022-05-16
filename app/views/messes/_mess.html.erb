@@ -4,8 +4,13 @@
 				<%= image_tag m.images.first %>
 			</div>
 			<div class="mess_info">
-				<h2 class="info_header"><%= link_to m.title.capitalize!,mess_path(m) %></h2>
-				<p class="desc"><%= m.description %></p>
+				<h2 class="info_header"><%= m.title.capitalize %></h2>
+				<% if m.description.size>30 %>
+					<p class="desc"><%= m.description[0..30]%>...</p>
+					<% else %>
+					<p class="desc"><%= m.description %></p>
+					
+				<% end %>
 
 				<% if m.service_boys_only %>
 					<p class="badge serboy">Service boys</p>
@@ -34,5 +39,10 @@
 				<h3><i class="fa-solid fa-location-dot"></i> <%= m.city %> </h3>
 				<h3 class="badge price-badge">₹<%= m.price %>/-</h3>
 			</div>
+			<div class="btn card_btn">
+				<%= link_to 'Show',mess_path(m) %>
+				
+			</div>
+			<!-- <button class="btn">Show</button> -->
 		</div>
 		<% end -%>
