@@ -2,7 +2,11 @@
 <div class="mess_show_container">
   <div class="mess_left_container">
     <div class="mess_image">
-      <%= image_tag @mess.images.first,class:'msimg'%>
+      <% i=1 %>
+      <% @mess.images.each do |img| %>
+        <%= image_tag img ,class:"msimg img#{i}"%>
+        <% i+=1 %>
+      <% end %>
     </div>
     <div class="mess_desc">
       <h1 class="logo_color"><%= @mess.title.capitalize %></h1>
