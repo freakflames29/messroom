@@ -39,10 +39,11 @@
 				<h3><i class="fa-solid fa-location-dot"></i> <%= m.city %> </h3>
 				<h3 class="badge price-badge">₹<%= m.price %>/-</h3>
 			</div>
+				<%= link_to mess_path(m) do %>
 			<div class="btn card_btn">
-				<%= link_to 'Show',mess_path(m) %>
-				
+				Show
 			</div>
+			<% end %>
 			<!-- <button class="btn">Show</button> -->
 		</div>
 		<% end -%>

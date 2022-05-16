@@ -16,7 +16,7 @@ class WelcomeController < ApplicationController
 
     if !landmark.size.zero?   and !city.size.zero?   
 
-      @search = Mess.where('landmark LIKE ? city LIKE  ? ','%'+landmark+'%','%'+city+'%')
+      @search = Mess.where('landmark LIKE ? and city LIKE  ? ','%'+landmark+'%','%'+city+'%')
 
     elsif !landmark.size.zero?
 
@@ -47,7 +47,7 @@ class WelcomeController < ApplicationController
     # render plain:params[:search]
 
    if landmark.size.zero? || city.size.zero? || min_price.size.zero? || max_price.size.zero? || boys_or_girls.eql?('--select--')
-      flash[:warn] = 'Fill the filed correctly !'
+      flash[:notice] = 'Fill the filed correctly !'
 
       render :show_adv_search
 

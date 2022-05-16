@@ -1,10 +1,23 @@
-<h1>signin</h1>
-<%= form_for :session, url:signin_path do |f| %>
-	<%= f.label :email %><br>
-	<%= f.email_field :email,placeholder:'Enter your email' %> <br>
+<div class="header">
+	<h1 class="logo_color">Signin</h1>
+</div>
 
-	<%= f.label :password %><br>
-	<%= f.password_field :password,placeholder:'Enter your password' %> <br>
 
-	<%= f.submit 'Signin' %>
-<% end -%>
+<div class="signup_form_container">
+	
+	<div class="signup_form sigin_form">
+		
+
+	<%= form_for :session, url:signin_path do |f| %>
+		<%= f.label :email,class:'form_label' %><br>
+		<%= f.email_field :email,placeholder:'Enter your email' ,class:'form_field'%> <br>
+
+		<%= f.label :password, class:'form_label'%><br>
+		<%= f.password_field :password,placeholder:'Enter your password',class:'form_field' %> <br>
+
+		<%= f.button 'Signin <i class="fa-solid fa-arrow-right-to-bracket"></i>'.html_safe,class:'btn signup_btn',type: :submit %>
+	<% end -%>
+
+
+	</div>
+</div>

@@ -9,9 +9,9 @@ class SessionController < ApplicationController
    
     if @user && @user.authenticate(params[:session][:password])
 
-        flash[:ok] ='You are logged in!'
+        flash[:win] ='You are logged in!'
         # redirect_to @user
-        redirect_to request.referer
+        redirect_to root_path
         session[:user_id]=@user.id
 
     else
@@ -23,6 +23,7 @@ class SessionController < ApplicationController
 
   def destroy
     session[:user_id]=nil
+    flash[:notice]='You are signed out !'
     redirect_to signin_path
   end
 

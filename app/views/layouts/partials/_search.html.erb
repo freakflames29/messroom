@@ -1,0 +1,17 @@
+<div class="float_search_container hide" id="srchdiv">
+		
+	<h2 align="center">Search</h2><br>
+		<div class="float_search">
+			
+		<%= form_for :search,url:search_path,class:'search_form',method: :get do |f| %>
+			<%= f.text_field :landmark,placeholder:'Enter landmark',class:'float_filed'%>
+			<%= f.text_field :city,placeholder:'Enter city',class:'float_filed' %>
+		
+
+			<%= f.button '<i class="fa-solid fa-magnifying-glass"></i>'.html_safe,class:'btn search_btn',type: :submit %>
+		<% end %>
+		<br>
+
+		</div>
+
+</div>

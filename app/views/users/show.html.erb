@@ -1,16 +1,28 @@
-<% if @user.is_owner %>
-	<h2 class="badge">YOU ARE OWNER</h2>
-<% end %>
-<h1><%= @user.name %></h1>
-<p>Userrname: @<%= @user.username %></p>
-<p>Eamil: <%= @user.email %></p>
-<p>Gender: <%= @user.gender %></p>
+<div class="user_profile_controller">
+	
+	<div class="user_profile">
+		<h4>@<%= @user.username %></h4>
+		<% if @user.is_owner %>
+				<h2 class="logo_color"><i class="fa-solid fa-crown" title="You are owner"></i> <%= @user.name.capitalize %> </h2><br>
+				<p>Has <%= pluralize @user.messes.size ,'Mess'%></p><br>
+			<% else %> 
+			<h2 class="logo_color"><%= @user.name.capitalize %> </h2><br>
+			
+		<% end %>
+		 <span class="badge"><b><i class="fa-solid fa-location-dot"></i> State:</b><%= @user.state %></span>
+		 <span class="badge"><b><i class="fa-solid fa-city"></i> City:</b><%= @user.city %></span>
+	</div>
 
-<h3> messes by this user</h3>
-<% if @user.messes.size > 0  %>
-	<% @user.messes.each do |mess| %>
+
+
+</div>
+<br>
+<h2 align="center">Mess uploaded by @<%= @user.username %> </h2> <br>
+
+<div class="messes_container">
+	<div class="messes">
+			
+		<%= render 'messes/mess' %>
 		
-		<p><%= link_to mess.title,mess_path(mess) %></p>
-		
-	<% end %>
-<% end %>
+	</div>
+</div>

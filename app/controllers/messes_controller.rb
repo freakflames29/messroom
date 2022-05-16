@@ -30,7 +30,14 @@ class MessesController < ApplicationController
     end
   end
 
-  def update; end
+
+  def edit
+    @mess=Mess.find params[:id]
+  end
+
+  def update
+    render plain:params
+  end
 
   def show
     @mess = Mess.find params[:id]

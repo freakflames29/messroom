@@ -25,6 +25,7 @@ class UsersController < ApplicationController
   end
 
   def show
+    @messes=@user.messes
   end
 
   def edit

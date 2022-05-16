@@ -1,21 +1,31 @@
-<h2>hi advance search done here</h2>
+<!-- <div class="header">
+	<h1 class="logo_color">Advance search</h1>
+</div> -->
 
-<%= form_for :search,url:advance_search_path,method: :get do |f| %>
 
-	<%= f.label :landmark %>
-	<%= f.text_field :landmark,placeholder:'search mess by landmark here' ,required:true%> <br>
-	<%= f.label :city %>
+<div class="adv_saerch_container">
+	
 
-	<%= f.text_field :city,placeholder:'search mess by city here' ,required:true%><br>
 
-	<%= f.label :min_price %>
-	<%= f.number_field :min_price,placeholder:'enter min_price',required:true %><br>
+	<%= form_for :search,url:advance_search_path,method: :get do |f| %>
+			<span class="logo_color search_div_txt">I want a mess in </span >
+		<%= f.text_field :city,placeholder:'city ' ,required:true,class:'field'%>
 
-	<%= f.label :max_price %>
-	<%= f.number_field :max_price,placeholder:'enter max_price',required:true %><br>
+			<span class="logo_color search_div_txt">near</span >
+			<%= f.text_field :landmark,placeholder:'landmark ' ,required:true,class:'field'%> 
+			<span class="logo_color search_div_txt">my minimum price is </span >
+		<%= f.number_field :min_price,placeholder:'min price',required:true ,class:'field'%>
+			<span class="logo_color search_div_txt">my maximum price is </span >
+		<%= f.number_field :max_price,placeholder:'max price',required:true ,class:'field'%>
+			<span class="logo_color search_div_txt">for </span >
 
-	<%= f.label :boys_or_girls,'Mess for ' %>
-	<%= f.select :boys_or_girls,['--select--','service boys','service girls','student boys','student girls','all'] ,required:true%>
 
-	<%= f.submit 'Search' %>
-<% end %>
+
+
+		<%= f.select :boys_or_girls,['--select--','service boys','service girls','student boys','student girls','all'] ,required:true ,class:'field select_field'%>
+
+		<%#= f.submit 'Search' %>
+		<%= f.button '<i class="fa-solid fa-magnifying-glass"></i>'.html_safe,class:'btn search_btn',type: :submit %>
+
+	<% end %>
+</div>

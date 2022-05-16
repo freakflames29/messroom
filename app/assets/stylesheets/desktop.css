@@ -689,3 +689,160 @@ a{
 {
 	color: var(--blue-dark);
 }
+.flash_container
+{
+
+    /*margin-bottom: 6%;*/
+}
+.flash
+{
+	    position: absolute;
+    padding: 20px 30px;
+    background: red;
+    width: 50%;
+    margin: auto;
+    margin-left: 26%;
+    margin-top: 2%;
+    text-transform: capitalize;
+    font-size: 18px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    z-index: 800;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+#crsbtn
+{
+	cursor: pointer;
+}
+
+.win
+{
+	background-color: #12b35a;
+	color: #fff;
+}
+.fail
+{
+	background-color: var(--blue-dark);
+}
+.notice
+{
+	background-color: #fcff3a;
+	color: #000;
+}
+.user_profile_controller
+{
+	width: 80%;
+	margin: auto;
+	padding: 20px 50px;
+	/*background: blue;*/
+	margin-top: 5%;
+}
+.user_profile
+{
+	width: 60%;
+	background: #fff;
+	padding: 30px 40px;
+	margin: auto;
+	border-radius: 10px ;
+	box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+	text-align: center;
+
+}
+.user_profile h2
+{
+	font-size: 40px;
+}
+
+.sigin_form form
+{
+	width: 50%;
+}
+.white
+{
+	color: #000;
+}.white:hover
+{
+	text-decoration: underline;
+}
+.adv_saerch_container
+{
+	width: 80%;
+	margin: auto;
+	margin-top: 5%;
+}
+.adv_saerch_container .field
+{
+	color: var(--color-black);
+}
+#search_boys_or_girls
+{
+	width: 300px;
+	font-size: 40px;
+    padding: 8px 13px;
+    background: none;
+    border: none;
+    border-bottom: 2px solid var(--blue-light);
+    border-radius: 6px;
+    outline: none;
+
+}
+.float_search_container
+{
+	width: 60%;
+	padding: 20px 30px;
+	background: #fff;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	position: absolute;
+	top: 40%;
+    left: 21%;
+	box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+	z-index: 565656565656;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+    transition: 0.25s ease;
+}
+.float_search .float_filed
+{
+	font-size: 20px;
+    padding: 8px 13px;
+    background: none;
+    border: none;
+    border: 2px solid var(--blue-light);
+    border-radius: 6px;
+    outline: none;
+}
+.float_search .btn
+{
+	font-size: 20px;
+}
+#float_search_btn
+{
+	 font-size: 1.5em;
+    padding: 23px;
+    position: fixed;
+    bottom: 10%;
+    background: var(--blue-dark);
+    right: 2%;
+    text-align: center;
+    border-radius: 50%;
+    color: #fff;
+    border: none;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+    cursor: pointer;
+}
+.hide
+{
+	display: none;
+}
+.blackdiv
+{
+	height: 100vh;
+	width: 100vw;
+	background: #00000094;
+	padding: 100%;
+	position: absolute;
+	z-index: 5656565;
+}

@@ -13,18 +13,22 @@
 			</span>
 
 			<span>About</span>
-			<span>About</span>
 			<% if !logged_in? %>
+			<a href="/signin">
+				
+			<span class="btn"><i class="fa-solid fa-arrow-right-to-bracket"></i> Signin</span>
+			</a>
 				
 			<a href="/checkpoint">
 				<span class="btn"><i class="fa-solid fa-user"></i>  Signup</span>
 			</a>
 			<% else %>
-			<span>About</span>
+				<!-- <span>About me</span> -->
+				<span><%= link_to 'My profile',user_path(current_user)  %></span>
 			<% if current_user.is_owner %>
 
 			<%= link_to upload_path,class:'btn' do%>
-				<i class="fa-solid fa-house"></i> upload
+				<i class="fa-solid fa-house"></i> upload your mess
 			<% end -%>
 				
 			<% end %>

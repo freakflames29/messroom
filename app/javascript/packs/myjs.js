@@ -11,3 +11,5 @@ function changeor () {
 }
 
 city.addEventListener('keypress', changeor)
+
+

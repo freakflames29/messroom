@@ -1,2 +1,17 @@
-<h1>Messes#create</h1>
-<p>Find me in app/views/messes/create.html.erb</p>
+
+
+<div class="header">
+	<h1 class="logo_color">Edit mess info</h1>
+</div>
+
+<%= render 'users/error',model_name:@mess %>
+
+
+<div class="signup_form_container">
+	
+	<div class="signup_form">
+		
+		<%= render 'messes/upload',path:mess_path %>
+
+	</div>
+</div>
