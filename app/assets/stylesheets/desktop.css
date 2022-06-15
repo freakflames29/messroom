@@ -108,7 +108,7 @@ a{
 {
 	width: 100%;
 	background-color: var(--color-black);
-	height: 69vh;
+	height: 56vh;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -280,6 +280,7 @@ a{
 .mess_footer
 {
 	display: flex;
+	/*flex-direction: column;*/
 	margin-top: 10px;
 	position: relative;
 	justify-content: space-between;
@@ -292,7 +293,7 @@ a{
 	margin:20px 0;
 	margin-top: 0;
 	text-align: center;
-	background-color: var(--color-black);
+	/*background-color: var(--color-black);*/
 	border-radius: 0 0 50% 50% / 100px;
 	padding: 40px 0;	
 	font-size: 1.5em;
@@ -348,7 +349,7 @@ a{
 .footer_continer
 {
 	width: 100%;
-	height: 30vh;
+	/*height: 30vh;*/
 	background: var(--color-black);
 	padding: 20px 50px;
 	color: #fff;
@@ -368,7 +369,9 @@ a{
 	padding: 10px 50px;
 	/*background: red;*/
 	display: flex;
-	justify-content: space-evenly;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
 }
 .footer h2
 {
@@ -846,4 +849,84 @@ a{
 	padding: 100%;
 	position: absolute;
 	z-index: 5656565;
+}
+.links_footer
+{
+	margin-top: 10px;
+}
+.links_footer span
+{
+	margin-right: 15px;
+	font-weight: 100;
+}
+.low_footer
+{
+	width: 100%;
+    text-align: center;
+    background: #080808;
+    color: #fff;
+    padding: 12px;
+    font-size: 12px;
+}
+.about_container
+{
+	display: flex;
+	justify-content: space-between;
+	/*margin: auto;*/
+	width: 100%;
+
+
+}
+.person
+{
+	border-radius: 10px;
+	max-height: 40vh;
+	margin-right: 10px;
+	/*background-color: #FFF7F2;*/
+	/*background: red;*/
+	width: 40%;
+	display: flex;
+	justify-content: center;
+	/*margin: auto;*/
+	align-items: center;
+	padding: 20px 10px;
+	background: #fff;
+	box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;	
+
+
+}
+.person h2
+{
+	color: var(--blue-dark);
+}
+.person_image
+{
+	width: 60%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin: auto;
+	padding: 10px 10px;
+	margin-right: 10px;
+}
+.person_img
+{
+	width: 100%;
+	border-radius: 10px;
+	border: 1px solid var(--color-black);
+}
+
+.subhead
+{
+	font-weight: 300;
+	font-size: 15px;
+}
+.person:hover
+{
+	transform: scale(1.03);
+}
+.about_infos
+{
+	flex-direction: column;
+	min-height: 100vh;
 }

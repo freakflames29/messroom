@@ -7,30 +7,32 @@ class WelcomeController < ApplicationController
   def search
 
     landmark = params[:search][:landmark]
-    # price = params[:search][:price]
     city = params[:search][:city]
-    # boys_or_girls = params[:search][:boys_or_girls]
 
-    puts "YES IT IS NIL"   if landmark.nil?
+    # render plain:params[:search][:landmark]
 
 
-    if !landmark.size.zero?   and !city.size.zero?   
+      puts "************#{landmark}**********************"
+      puts "************#{city}**********************"
 
-      @search = Mess.where('landmark LIKE ? and city LIKE  ? ','%'+landmark+'%','%'+city+'%')
+    landmark = '' if landmark.nil?
+    city   ='' if city.nil?
+    # puts "CITY IS NIL" if city.size.zero?
 
-    elsif !landmark.size.zero?
 
-      @search = Mess.where('landmark LIKE ?','%'+landmark+'%')
+    # if !landmark.nil? && !city.nil?
+    #   @search = Mess.where('landmark  LIKE ? and city LIKE ?','%'+landmark+'%','%'+city+'%')
+    # elsif !landmark.nil? && city.nil?
+    #   @search = Mess.where('landmark LIKE ?','%'+landmark+'%')
+    # elsif !city.nil? && landmark.nil?
+    #   @search = Mess.where('city LIKE ?','%'+city+'%')
+    # else
+    #   @search = Mess.all
+    # end
 
-    elsif !city.size.zero?   
-
-      @search = Mess.where('city LIKE ?','%'+city+'%')
-
-    else
-
-      @search = Mess.all
-
-    end
+   
+    @search = Mess.where('landmark LIKE ? and city LIKE ?','%'+landmark+'%','%'+city+'%')
+      
 
   end
 
@@ -81,5 +83,9 @@ class WelcomeController < ApplicationController
   def check_user_type
   end
 
+
+
+  def about
+  end
 
 end

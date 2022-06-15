@@ -1,8 +1,27 @@
-<h1>search result for </h1>
 
-<% @search.each do |s| %>
-	<p>
-	<%= link_to s.title,mess_path(s) %> | 
-	<b><%= s.landmark %></b>	
-	</p>
+<div class="header">
+	<h1 class="logo_color">Search Results</h1>
+</div>
+
+<% @messes = @search  %>
+
+<% if @search.size >0 %>
+	
+<div class="messes_container">
+	<div class="messes">
+			
+		<%= render 'messes/mess' %>
+		
+	</div>
+</div>
+<% else %>
+
+<div class="messes_container">
+	<div class="messes">
+			
+		<h2>No result found :(</h2>
+		
+	</div>
+</div>
+
 <% end %>

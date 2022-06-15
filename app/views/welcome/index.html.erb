@@ -10,10 +10,15 @@
 		
 
 		<%= form_for :search,url:search_path,class:'search_form',method: :get do |f| %>
+
 			<span class="logo_color search_div_txt">You can search by</span >
+
 			<%= f.text_field :landmark,placeholder:'landmark' ,class:'field'%>
+
 			<span class="logo_color search_div_txt">or</span >
+
 			<%= f.text_field :city,placeholder:'by city' ,class:'field' %>
+
 			<%#= f.number_field :price,placeholder:'enter price' %>
 
 			<%#= f.select :boys_or_girls,['--select--','for boys','for girls','for all'] %>
@@ -21,6 +26,7 @@
 
 			<%= f.button '<i class="fa-solid fa-magnifying-glass"></i>'.html_safe,class:'btn search_btn',type: :submit %>
 		<% end %>
+		
 		<span class="white_links">
 		<%= link_to 'Advance search',advance_path,class:'white_links'  %>
 			

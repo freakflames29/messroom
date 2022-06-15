@@ -49,5 +49,9 @@ Rails.application.routes.draw do
 
   get 'checkpoint',to:'welcome#check_user_type'
 
+
+
+  get 'about',to:'welcome#about'
+
  
 end
