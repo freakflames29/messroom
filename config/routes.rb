@@ -2,6 +2,12 @@ Rails.application.routes.draw do
  
 
 
+  get 'contact',to:'contact#new'
+  post 'contact',to:'contact#create'
+  get 'contact/show'
+
+
+
   # get 'reviews/new'
   post 'mess/:id/review_post' ,to:'reviews#create',as:'review_post'
   get 'reviews/index'

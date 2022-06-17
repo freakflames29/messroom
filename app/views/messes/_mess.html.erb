@@ -1,5 +1,12 @@
 <% @messes.each do |m| %>
 		<div class="single_mess">
+			<% if m.room_available %>
+				
+				<p class="rooms_avl">Rooms available</p>
+				<% else %>
+				<p class="rooms_avl rooms_avl_not">Rooms not available</p>
+
+			<% end %>
 			<div class="mess_image">
 				<%= image_tag m.images.first %>
 			</div>

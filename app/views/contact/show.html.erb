@@ -1,0 +1,16 @@
+<div class="header">
+	<h1 class="logo_color">All contact msgs</h1>
+</div>
+
+<div class="contact_show">
+<% @msgs.each do |msg| %>
+	<div class="review">
+
+	  <h3 class="ct_tittle"> <%= msg.title.capitalize %></h3> 
+	  <span class="badge"><i class="fa-solid fa-user"></i> <%= msg.name %></span>
+	  <span class="badge"><i class="fa-solid fa-envelope"></i>  <%= msg.email %></span>
+	  <p class="ct_body">  <%= msg.body %></p>
+		
+	</div>
+<% end %>
+</div>

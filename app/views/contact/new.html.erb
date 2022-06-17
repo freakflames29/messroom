@@ -1,0 +1,39 @@
+<div class="header">
+	<h1 class="logo_color">Contact us</h1>
+</div>
+
+
+<div class="signup_form_container">
+	
+	<div class="signup_form sigin_form">
+
+<%= form_for @contact,url:contact_path do |f| %>
+	
+	<% if logged_in? %>
+		
+
+		<%= f.label :name ,class:'form_label' %><span class="red"> *</span>
+		<%= f.text_field :name,placeholder:'Your name',value:current_user.name,readonly:true,class:'form_field readonly' %><br>
+		<%= f.label :email,class:'form_label' %><span class="red"> *</span>
+		<%= f.email_field :email,value:current_user.email,readonly:true  ,class:'form_field readonly'%>
+	
+	<% else %>
+
+		<%= f.label :name ,class:'form_label'%><span class="red"> *</span>
+		<%= f.text_field :name,placeholder:'Your name',class:'form_field'%> 
+		<%= f.label :email,class:'form_label' %>
+		<%= f.email_field :email,placeholder:'Your email',class:'form_field'%>
+
+	<% end %>
+	<%= f.label :title ,class:'form_label'%><span class="red"> *</span>
+	<%= f.text_field :title,placeholder:'Title of your query' ,class:'form_field'%>
+
+	<%= f.label :body,class:'form_label' %><span class="red"> *</span>
+	<%= f.text_area :body,rows:10,placeholder:'Write here...' ,class:'form_field'%>
+
+
+	<%= f.button 'Send <i class="fa-solid fa-paper-plane"></i>'.html_safe,class:'btn signup_btn',type: :submit %>
+<% end -%>
+
+</div>
+</div>

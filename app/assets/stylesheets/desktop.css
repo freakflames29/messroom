@@ -947,3 +947,40 @@ a{
 	border: 1px solid #026417;
 
 }
+.readonly
+{
+	    background: #e1dddd;
+    color: gray;
+        cursor: not-allowed;
+
+}
+.red
+{
+	color: red;
+}
+.contact_show
+{
+	    width: 74%;
+    margin: auto;
+}
+.ct_tittle
+{
+	margin-bottom: 5px;
+}
+.ct_body
+{
+	margin-top: 5px;
+}
+.rooms_avl
+{
+	padding: 5px 10px;
+	background: #55f355;
+	margin-bottom: 10px;
+	width: 50%;
+	border-radius: 8px;
+	font-size: 15px;
+}
+.rooms_avl_not
+{
+	background: var(--blue-light);
+}
