@@ -1,9 +1,15 @@
 <div class="user_profile_controller">
 	
 	<div class="user_profile">
+		<% if @user.gender.eql?('male') %>
+			<%= image_tag 'sou.jpg',class:'avatar' %>
+			<% else %>
+			<%= image_tag 'swar.jpg',class:'avatar' %>
+			
+		<% end %>
 		<h4>@<%= @user.username %></h4>
 		<% if @user.is_owner %>
-				<h2 class="logo_color"><i class="fa-solid fa-crown" title="You are owner"></i> <%= @user.name.capitalize %> </h2><br>
+				<h2 class="logo_color"><i class="fa-solid fa-crown" title="owner badge"></i> <%= @user.name.capitalize %> </h2><br>
 				<p>Has <%= pluralize @user.messes.size ,'Mess'%></p><br>
 			<% else %> 
 			<h2 class="logo_color"><%= @user.name.capitalize %> </h2><br>
@@ -17,6 +23,9 @@
 
 </div>
 <br>
+
+<% if @user.messes.size> 0 %>
+	
 <h2 align="center">Mess uploaded by @<%= @user.username %> </h2> <br>
 
 <div class="messes_container">
@@ -26,3 +35,5 @@
 		
 	</div>
 </div>
+
+<% end %>

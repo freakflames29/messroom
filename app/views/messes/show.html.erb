@@ -9,6 +9,7 @@
       <% end %>
     </div>
     <div class="mess_desc">
+
       <h1 class="logo_color"><%= @mess.title.capitalize %></h1>
       <p><%= @mess.description %></p> <br>
       <p> <span class="badge"><b><i class="fa-solid fa-address-card"></i> Address:</b></span> <%= @mess.adrs.capitalize %> </p>
@@ -54,6 +55,11 @@
         <% if @mess.user %>
           <a href="tel:<%= @mess.user.phone %>" class='btn info_btn'><i class="fa-solid fa-phone"></i> Call the owner</a>
           <a href="mailto:<%= @mess.user.email %>" class='btn info_btn light_btn'><i class="fa-solid fa-envelope"></i> Email the owner</a>
+
+          <% if @mess.user.eql?(current_user) %>
+              <%= link_to '<i class="fa-solid fa-pen-to-square"></i> Edit info'.html_safe,edit_mess_path,class:'btn info_btn light_btn editbtn'  %>
+          <% end %>
+
         <% end -%>
       <% end %>
     </div>
@@ -81,9 +87,10 @@
 
 	<% @all_reviews.each do |review| %>
 	<div class="review">
-	  <p class="username">@<%= review.user.username %></p> 
 
-	  <p><%= review.body %> </b></p>
+	  <p class="username">  @<%= review.user.username %></p> 
+
+	  <p>  <%= review.body %> </b></p>
 		
 	</div>
 	<% end %>

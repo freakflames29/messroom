@@ -892,6 +892,7 @@ a{
 	padding: 20px 10px;
 	background: #fff;
 	box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;	
+	transition: 0.15s ease;
 
 
 }
@@ -929,4 +930,20 @@ a{
 {
 	flex-direction: column;
 	min-height: 100vh;
+}
+.avatar
+{
+	width: 100px;
+	border-radius: 10px;
+}
+.editbtn
+{
+	background: #008f1f;
+	border: 1px solid #026417;
+}
+.editbtn:hover
+{
+	color: #026417;
+	border: 1px solid #026417;
+
 }

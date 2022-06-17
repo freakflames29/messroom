@@ -11,7 +11,7 @@ class SessionController < ApplicationController
 
         flash[:win] ='You are logged in!'
         # redirect_to @user
-        redirect_to root_path
+        redirect_to @user
         session[:user_id]=@user.id
 
     else

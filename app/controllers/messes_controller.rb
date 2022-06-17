@@ -1,9 +1,9 @@
 class MessesController < ApplicationController
-  before_action :check_owner_profile, only: %i[new create]
+  before_action :check_owner_profile, only: %i[new create update]
   before_action :require_user,only:[:show_number]
 
   def index
-    @messes = Mess.all
+    @messes = Mess.all.order('created_at DESC')
   end
 
   def new
@@ -32,11 +32,19 @@ class MessesController < ApplicationController
 
 
   def edit
+    check_user_is_the_uploader
     @mess=Mess.find params[:id]
   end
 
   def update
-    render plain:params
+
+    @mess=Mess.find params[:id]
+    if @mess.update(filter_params)
+      flash[:win]='Mess updated !'
+      redirect_to @mess
+    else
+      render :edit
+    end 
   end
 
   def show
@@ -65,5 +73,17 @@ class MessesController < ApplicationController
   def filter_params
     params.require(:mess).permit(:title, :description, :price, :adrs, :city, :state, :landmark, :pincode, :service_boys_only,
                                  :service_girls_only, :student_boys_only, :student_girls_only, :for_all, :room_available, images: [])
+  end
+
+
+  def check_user_is_the_uploader
+    @mess=Mess.find params[:id]
+
+    if !@mess.user.eql?(current_user)
+      flash[:fail]="You can't edit this mess info"
+      redirect_to @mess
+    end
+
+
   end
 end
