@@ -1,9 +1,9 @@
 class Mess < ApplicationRecord
-	belongs_to :user
+	belongs_to :user,dependent: :destroy
 
-	has_many_attached :images
+	has_many_attached :images,dependent: :purge_later
 
-	has_many :reviews
+	has_many :reviews,dependent: :destroy
 	
 	validates :price, presence: true
 	validates :city, presence: true
@@ -17,3 +17,4 @@ class Mess < ApplicationRecord
 
 	validates :images,presence: true
 end
+	
