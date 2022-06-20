@@ -622,6 +622,18 @@ a{
 	color: #fff;
 	margin: 10px 0;
 }
+.callbtn
+{
+	background: #519fff;
+	border: 1px solid #3984e1;
+	
+}
+.callbtn:hover
+{
+	background: none;
+	color: #3984e1;
+	border: 1px solid #3984e1;
+}
 .light_btn
 {
 	background: var(--color-black);

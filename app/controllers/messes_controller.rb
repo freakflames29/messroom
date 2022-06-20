@@ -1,6 +1,7 @@
 class MessesController < ApplicationController
   before_action :check_owner_profile, only: %i[new create update]
   before_action :require_user,only:[:show_number]
+  before_action :check_user_is_the_uploader ,only:[:edit, :destroy]
 
   def index
     @messes = Mess.all.order('created_at DESC')
@@ -32,7 +33,7 @@ class MessesController < ApplicationController
 
 
   def edit
-    check_user_is_the_uploader
+    # check_user_is_the_uploader
     @mess=Mess.find params[:id]
   end
 
@@ -66,7 +67,15 @@ class MessesController < ApplicationController
 
 
 
-  def destroy; end
+  def destroy
+
+        @mess=Mess.find params[:id]
+        if @mess.destroy
+          flash[:notice]="'#{@mess.title}' deleted !"
+          redirect_to messes_path
+        end
+
+  end
 
   private
 
@@ -80,7 +89,7 @@ class MessesController < ApplicationController
     @mess=Mess.find params[:id]
 
     if !@mess.user.eql?(current_user)
-      flash[:fail]="You can't edit this mess info"
+      flash[:fail]="You can't perform this action"
       redirect_to @mess
     end
 

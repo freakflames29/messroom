@@ -1,5 +1,5 @@
 class Mess < ApplicationRecord
-	belongs_to :user,dependent: :destroy
+	belongs_to :user
 
 	has_many_attached :images,dependent: :purge_later
 

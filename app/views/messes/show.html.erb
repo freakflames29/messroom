@@ -53,11 +53,12 @@
         </div>
       <% else %>
         <% if @mess.user %>
-          <a href="tel:<%= @mess.user.phone %>" class='btn info_btn'><i class="fa-solid fa-phone"></i> Call the owner</a>
+          <a href="tel:<%= @mess.user.phone %>" class='btn info_btn callbtn'><i class="fa-solid fa-phone"></i> Call the owner</a>
           <a href="mailto:<%= @mess.user.email %>" class='btn info_btn light_btn'><i class="fa-solid fa-envelope"></i> Email the owner</a>
 
           <% if @mess.user.eql?(current_user) %>
               <%= link_to '<i class="fa-solid fa-pen-to-square"></i> Edit info'.html_safe,edit_mess_path,class:'btn info_btn light_btn editbtn'  %>
+              <%= link_to '<i class="fa-solid fa-trash"></i> Delete '.html_safe,mess_path(@mess),method: :delete,class:'btn info_btn',data:{confirm:"you really want to delete the mess '#{@mess.title}'?"}  %>
           <% end %>
 
         <% end -%>
