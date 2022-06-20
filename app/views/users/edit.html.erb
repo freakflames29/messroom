@@ -1,2 +1,17 @@
-<h1>Users#edit</h1>
-<p>Find me in app/views/users/edit.html.erb</p>
+<div class="header">
+	<h1 class="logo_color">Edit your account</h1>
+</div>
+
+
+<%= render 'users/error',model_name:@user  %>
+<div class="signup_form_container">
+  <div class="signup_form">
+
+  	<% if @owner %>
+	    <%= render 'users/form',para:'Update',model_name: @user,owner:@owner,myurl:user_path(@user)%>
+	<% else %>
+	    <%= render 'users/form',para:'Update',model_name: @user,owner:@owner%>
+  		
+  	<% end %>
+  </div>
+</div>

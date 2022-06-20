@@ -996,3 +996,14 @@ a{
 {
 	background: var(--blue-light);
 }
+
+.acnt_btn
+{
+	margin-left: 16px;
+}
+.admin_badge
+{
+	margin-bottom: 10px;
+	background: #0072ff;
+	color: #fff;
+}

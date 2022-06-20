@@ -13,7 +13,7 @@
 	<div class="signup_form">
 		
 		<%#= render 'users/form',para:'Signup',model_name: @user,owner:false%>
-	<%= render 'users/form',para:'Signup as owner',model_name: @mess_owner,owner:true %>
+	<%= render 'users/form',para:'Signup as owner',model_name: @mess_owner,owner:true ,myurl:signup_owner_path%>
 
 	</div>
 </div>

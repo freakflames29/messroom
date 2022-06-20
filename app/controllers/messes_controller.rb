@@ -88,7 +88,7 @@ class MessesController < ApplicationController
   def check_user_is_the_uploader
     @mess=Mess.find params[:id]
 
-    if !@mess.user.eql?(current_user)
+    if !@mess.user.eql?(current_user) and !admin_user
       flash[:fail]="You can't perform this action"
       redirect_to @mess
     end

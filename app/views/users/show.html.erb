@@ -9,14 +9,22 @@
 		<% end %>
 		<h4>@<%= @user.username %></h4>
 		<% if @user.is_owner %>
-				<h2 class="logo_color"><i class="fa-solid fa-crown" title="owner badge"></i> <%= @user.name.capitalize %> </h2><br>
-				<p>Has <%= pluralize @user.messes.size ,'Mess'%></p><br>
+				<h2 class="logo_color"><i class="fa-solid fa-crown" title="owner badge"></i> <%= @user.name.capitalize %> </h2><br> 
+				<h4 class="badge admin_badge"> <i class="fa-solid fa-fire"></i> You are admin</h4> 
+				<br><p>Has <%= pluralize @user.messes.size ,'Mess'%></p><br>
 			<% else %> 
 			<h2 class="logo_color"><%= @user.name.capitalize %> </h2><br>
 			
 		<% end %>
 		 <span class="badge"><b><i class="fa-solid fa-location-dot"></i> State:</b><%= @user.state %></span>
-		 <span class="badge"><b><i class="fa-solid fa-city"></i> City:</b><%= @user.city %></span>
+		 <span class="badge"><b><i class="fa-solid fa-city"></i> City:</b><%= @user.city %></span> 
+		 <% if @user.eql?(current_user) || admin_user%>
+		 	<br><br><br>
+		 <%= link_to "<i class='fa-solid fa-user-pen'></i> Edit account".html_safe,edit_user_path(@user),class:'btn editbtn'  %>
+
+		 <%= link_to '<i class="fa-solid fa-trash"></i> Delete account'.html_safe,user_path(@user),method: :delete,class:'btn acnt_btn',data:{confirm:'Are you sure that you want to delete your account ?'} %>
+
+		 <% end %>
 	</div>
 
 
