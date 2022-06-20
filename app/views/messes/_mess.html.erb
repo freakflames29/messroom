@@ -1,10 +1,11 @@
 <% @messes.each do |m| %>
+
 		<div class="single_mess">
 			<% if m.room_available %>
 				
-				<p class="rooms_avl">Rooms available</p>
+				<p class="rooms_avl"><i class="fa-solid fa-check"></i> Rooms available</p>
 				<% else %>
-				<p class="rooms_avl rooms_avl_not">Rooms not available</p>
+				<p class="rooms_avl rooms_avl_not"><i class="fa-solid fa-xmark"></i> Rooms not available</p>
 
 			<% end %>
 			<div class="mess_image">
@@ -12,6 +13,19 @@
 			</div>
 			<div class="mess_info">
 				<h2 class="info_header"><%= m.title.capitalize %></h2>
+				<div class="review_user mt">
+					
+				<% if m.user %>
+				    <% if m.user.gender.eql?('male') %>
+					<%= image_tag 'sou.jpg',class:'review_avatar mess_avatar' %>
+					<% else %>
+					<%= image_tag 'swar.jpg',class:'review_avatar mess_avatar' %>
+
+					
+				<% end %>
+				<span class="logo_color">@<%= link_to m.user.username,user_path(m.user) %> </span>
+				<% end %>
+				</div>
 				<% if m.description.size>30 %>
 					<p class="desc"><%= m.description[0..30]%>...</p>
 					<% else %>

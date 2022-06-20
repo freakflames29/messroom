@@ -88,8 +88,16 @@
 
 	<% @all_reviews.each do |review| %>
 	<div class="review">
+    <div class="review_user">
+      
+    <% if review.user.gender.eql?('male') %>
+      <%= image_tag 'rahu.jpg' ,class:'review_avatar'%>
+      <% else %>
+      <%= image_tag 'swar.jpg' ,class:'review_avatar'%>
 
-	  <p class="username">  @<%= review.user.username %></p> 
+    <% end %>
+	  <h4 class="username"> <%= review.user.username %></h4> <span class="time_review"><%= time_ago_in_words(review.updated_at) %> ago</span>
+    </div>
 
 	  <p>  <%= review.body %> </b></p>
 		

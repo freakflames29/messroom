@@ -9,8 +9,16 @@
 		<% end %>
 		<h4>@<%= @user.username %></h4>
 		<% if @user.is_owner %>
-				<h2 class="logo_color"><i class="fa-solid fa-crown" title="owner badge"></i> <%= @user.name.capitalize %> </h2><br> 
-				<h4 class="badge admin_badge"> <i class="fa-solid fa-fire"></i> You are admin</h4> 
+				<h2 class="logo_color"><i class="fa-solid fa-crown" title="owner badge"></i> <%= @user.name.capitalize %> </h2> 
+				<% if admin_user %>
+					<br>
+					<h4 class="badge admin_badge"> <i class="fa-solid fa-fire"></i> You are admin <br>
+
+				<% else %>
+					<br>
+					<h4 class="badge admin_badge"> <i class="fa-solid fa-fire"></i> Admin</h4> 
+				<% end %>
+
 				<br><p>Has <%= pluralize @user.messes.size ,'Mess'%></p><br>
 			<% else %> 
 			<h2 class="logo_color"><%= @user.name.capitalize %> </h2><br>

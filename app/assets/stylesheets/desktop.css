@@ -683,9 +683,10 @@ a{
 }
 .username
 {
-	font-size: 15px;
+	font-size: 18px;
     font-weight: 700;
     margin-bottom: 4px;
+    margin-left: 2px;
 }
 .card_btn
 {
@@ -1006,4 +1007,29 @@ a{
 	margin-bottom: 10px;
 	background: #0072ff;
 	color: #fff;
+}
+.review_avatar
+{
+	width: 5%;
+}
+.review_user
+{
+	    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+}
+.time_review
+{
+	    margin-left: 9px;
+    font-size: 11px;
+    color: gray;
+}
+.mess_by
+{
+	margin-top: 5px;
+}
+.mess_avatar
+{
+	width: 8%;
+	margin-right: 5px;
 }

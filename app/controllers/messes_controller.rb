@@ -53,7 +53,7 @@ class MessesController < ApplicationController
 
     @review=Review.new
 
-    @all_reviews = @mess.reviews.all
+    @all_reviews = @mess.reviews.all.reverse
   end
 
   def show_number 
