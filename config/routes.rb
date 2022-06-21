@@ -12,6 +12,8 @@ Rails.application.routes.draw do
   post 'mess/:id/review_post' ,to:'reviews#create',as:'review_post'
   get 'reviews/index'
 
+  resources :reviews,only:[:destroy]
+
   get 'messes/new'
   get 'messes/index'
   get 'messes/create'

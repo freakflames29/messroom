@@ -1017,6 +1017,7 @@ a{
 	    display: flex;
     align-items: center;
     margin-bottom: 5px;
+    position: relative;
 }
 .time_review
 {
@@ -1032,4 +1033,12 @@ a{
 {
 	width: 8%;
 	margin-right: 5px;
+}
+.red_badge
+{
+	background: var(--blue-dark);
+	text-transform: capitalize;
+	margin-left: 10px;
+	position: absolute;
+	right: 0;
 }

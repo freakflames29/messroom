@@ -29,7 +29,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    @messes = @user.messes
+    @messes = @user.messes.reverse
   end
 
   def edit

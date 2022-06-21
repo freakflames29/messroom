@@ -97,6 +97,12 @@
 
     <% end %>
 	  <h4 class="username"> <%= review.user.username %></h4> <span class="time_review"><%= time_ago_in_words(review.updated_at) %> ago</span>
+
+    <% if review.user.eql?(current_user) || admin_user %>
+      
+    <span class="badge red_badge"><%= link_to '<i class="fa-solid fa-trash"></i> delete review'.html_safe,review_path(review.id),method: :delete,class:'white_links' %></span>
+
+    <% end %>
     </div>
 
 	  <p>  <%= review.body %> </b></p>
