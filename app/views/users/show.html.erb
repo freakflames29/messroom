@@ -12,11 +12,9 @@
 				<h2 class="logo_color"><i class="fa-solid fa-crown" title="owner badge"></i> <%= @user.name.capitalize %> </h2> 
 				<% if admin_user %>
 					<br>
-					<h4 class="badge admin_badge"> <i class="fa-solid fa-fire"></i> You are admin <br>
-					</h4>
-				<% else %>
-					<br>
-					<h4 class="badge admin_badge"> <i class="fa-solid fa-fire"></i> Admin</h4> 
+					<h4 class="badge admin_badge"> <i class="fa-solid fa-fire"></i> You are admin 
+					</h4><br>	
+							
 				<% end %>
 
 				<br><p>Has <%= pluralize @user.messes.size ,'Mess'%></p><br>
@@ -31,6 +29,11 @@
 		 <%= link_to "<i class='fa-solid fa-user-pen'></i> Edit account".html_safe,edit_user_path(@user),class:'btn editbtn'  %>
 
 		 <%= link_to '<i class="fa-solid fa-trash"></i> Delete account'.html_safe,user_path(@user),method: :delete,class:'btn acnt_btn',data:{confirm:'Are you sure that you want to delete your account ?'} %>
+
+		 <% if admin_user %>
+		 <br><br><br>
+		 	<%= link_to '<i class="fa-solid fa-eye"></i> View contact messages'.html_safe,contact_show_path,class:'btn acnt_btn'  %>
+		 <% end %>
 
 		 <% end %>
 	</div>

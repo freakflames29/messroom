@@ -1,5 +1,5 @@
 <div class="header">
-	<h1 class="logo_color">All contact msgs</h1>
+	<h1 class="logo_color">All contact messages</h1>
 </div>
 
 <div class="contact_show">
@@ -9,6 +9,7 @@
 	  <h3 class="ct_tittle"> <%= msg.title.capitalize %></h3> 
 	  <span class="badge"><i class="fa-solid fa-user"></i> <%= msg.name %></span>
 	  <span class="badge"><i class="fa-solid fa-envelope"></i>  <%= msg.email %></span>
+	  <span class="badge"><i class="fa-solid fa-clock"></i> about <%= time_ago_in_words(msg.created_at) %> ago</span>
 	  <p class="ct_body">  <%= msg.body %></p>
 		
 	</div>
