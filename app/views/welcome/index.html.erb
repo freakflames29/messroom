@@ -59,7 +59,12 @@
 	</div>
 	<div class="hero_three_right">
 		<!-- <button class="btn big-btn">Get started <i class="fa-solid fa-angle-right"></i></button> -->
+		<% if logged_in? %>
+		<a href="/messes" class="btn big-btn">View Messes <i class="fa-solid fa-angle-right"></i></a>
+		<% else %>
 		<a href="/signup" class="btn big-btn">Get started <i class="fa-solid fa-angle-right"></i></a>
+
+		<% end %>
 	</div>
 </div>
 
