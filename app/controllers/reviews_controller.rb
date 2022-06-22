@@ -13,7 +13,7 @@ class ReviewsController < ApplicationController
     @review.mess = @mess
      
     if @review.save
-      flash[:win] = 'You added a review !'
+      flash[:win] = 'Review added!'
       redirect_to @mess
     else
       flash[:fail]='oops! there is an error !'
@@ -29,7 +29,7 @@ class ReviewsController < ApplicationController
     @r=Review.find params[:id]
     x=@r
     if @r.destroy
-      flash[:win]='Your review deleted!'
+      flash[:win]='Review deleted!'
       redirect_to mess_path(x.mess)
     end
   end

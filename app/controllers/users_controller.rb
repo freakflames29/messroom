@@ -67,11 +67,23 @@ class UsersController < ApplicationController
 
   def destroy
     @user=User.find params[:id]
+    flag = false
+    username = @user.username
+
+    if current_user.eql? @user
+      flag = true
+    end
+
     if @user.destroy
-      flash[:win]='Your account deleted !'
-      session[:user_id]=nil
+      flash[:win]="#{username} user deleted !"
+
+      if flag
+        session[:user_id]=nil
+      end
+
       redirect_to root_path
     end
+    
   end
 
 

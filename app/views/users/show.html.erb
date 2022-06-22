@@ -30,8 +30,8 @@
 
 		 <%= link_to '<i class="fa-solid fa-trash"></i> Delete account'.html_safe,user_path(@user),method: :delete,class:'btn acnt_btn',data:{confirm:'Are you sure that you want to delete your account ?'} %>
 
-		 <% if admin_user %>
-		 <br><br><br>
+		 <% if User.find(params[:id]).eql? admin_user_profile %>
+			 <br><br><br>
 		 	<%= link_to '<i class="fa-solid fa-eye"></i> View contact messages'.html_safe,contact_show_path,class:'btn acnt_btn'  %>
 		 <% end %>
 

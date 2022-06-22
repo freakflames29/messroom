@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-	helper_method :current_user, :logged_in?,:admin_user
+	helper_method :current_user, :logged_in?,:admin_user,:admin_user_profile
 
   def current_user
     @current_user=nil
@@ -42,12 +42,17 @@ class ApplicationController < ActionController::Base
 
 
   def admin_user
-    if current_user.id.eql? 5
+    if logged_in? and current_user.id.eql? 5
       return true
     else
       return false
     end
 
+  end
+
+
+  def admin_user_profile
+    @admin=User.find 5
   end
 
 end

@@ -96,7 +96,7 @@
       <%= image_tag 'swar.jpg' ,class:'review_avatar'%>
 
     <% end %>
-	  <h4 class="username"> <%= review.user.username %></h4> <span class="time_review"><%= time_ago_in_words(review.updated_at) %> ago</span>
+	  <h4 class="username"> <%= link_to '@'+review.user.username,user_path(review.user),class:'logo_color' %></h4> <span class="time_review"><%= time_ago_in_words(review.updated_at) %> ago</span>
 
     <% if review.user.eql?(current_user) || admin_user %>
       
