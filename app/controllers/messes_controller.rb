@@ -51,7 +51,22 @@ class MessesController < ApplicationController
   def show
     @mess = Mess.find params[:id]
 
+    @rate=Rating.new
+
     @review=Review.new
+
+    @mess_ratingss = @mess.ratings
+
+    @sum=0;
+    @mess_ratingss.each do |mr|
+      @sum+=mr.rating
+    end
+
+    if @mess_ratingss.size >0
+      @avg = @sum/@mess_ratingss.size
+    else
+      @avg=0
+    end
 
     @all_reviews = @mess.reviews.all.reverse
   end

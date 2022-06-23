@@ -60,6 +60,30 @@
 				<h3><i class="fa-solid fa-location-dot"></i> <%= m.city %> </h3>
 				<h3 class="badge price-badge">₹<%= m.price %>/-</h3>
 			</div>
+			
+			<% sum=0  %>
+			<% m.ratings.each do |rt| %>
+				<% sum+=rt.rating  %>
+			<% end -%>
+
+			<% avg=0  %>
+			<% if m.ratings.size > 0 %>
+				<% avg = sum/m.ratings.size  %>
+			<% end %>
+
+
+				<!-- <span class="badge"><%= avg.ceil %></span> -->
+
+				<% if avg.ceil >=4 %>
+	       <span class="badge green_rating_badge"><i class="fa-solid fa-star"></i> <%= avg.ceil %> </span>
+	        <% elsif avg.ceil >=2 %>
+	         <span class="badge green_rating_badge orange_rating"><i class="fa-solid fa-star"></i> <%= avg.ceil %> </span>
+	         <% else %>
+	         <span class="badge green_rating_badge red_rating"><i class="fa-solid fa-star"></i> <%= avg.ceil %> </span>
+
+      <% end %>
+
+
 				<%= link_to mess_path(m) do %>
 			<div class="btn card_btn">
 				View

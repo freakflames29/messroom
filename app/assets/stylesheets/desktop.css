@@ -1042,3 +1042,35 @@ a{
 	position: absolute;
 	right: 0;
 }
+.rating_form
+{
+	margin-top: 10px;
+}
+.radio_label
+{
+	font-size: 20px;
+}
+.rating_form h2
+{
+	margin-bottom: 10px;
+}
+.rating_btn
+{
+	margin-top: 10px;
+	font-size: 18px;
+}
+.green_rating_badge
+{
+	    background: #025a08;
+    color: #fff;
+    font-size: 25px;
+    margin-bottom: 5px;
+}
+.orange_rating
+{
+	background: orange;
+}
+.red_rating
+{
+	background: var(--blue-dark);
+}

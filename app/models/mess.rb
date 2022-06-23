@@ -5,6 +5,8 @@ class Mess < ApplicationRecord
 
 	has_many :reviews,dependent: :destroy
 	
+	has_many :ratings,dependent: :destroy
+
 	validates :price, presence: true
 	validates :city, presence: true
 	validates :state, presence: true

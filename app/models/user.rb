@@ -1,5 +1,8 @@
 class User < ApplicationRecord
   has_many :messes,dependent: :destroy
+  
+  has_many :ratings,dependent: :destroy
+
   has_secure_password
   
   has_many :reviews,dependent: :destroy

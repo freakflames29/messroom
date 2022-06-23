@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
- 
+  
+  #rating routes
+  post 'rating/:id',to:'ratings#create',as:'rating'
 
 
   get 'contact',to:'contact#new'

@@ -39,6 +39,26 @@
       	
       <% end %>
 
+      <% if logged_in? %>
+        
+      <div class="rating_form">
+        <h2 class="logo_color">Rate this mess</h2>
+        <%= form_for @rate,url:rating_path do |f| %>
+            
+            <%#= f.select :rating ,[1,2,3,4,5] %>
+            <%= f.radio_button :rating,1 %> <span class="radio_label">1</span>
+            <%= f.radio_button :rating,2 %> <span class="radio_label">2</span>
+            <%= f.radio_button :rating,3 %> <span class="radio_label">3</span>
+            <%= f.radio_button :rating,4 %> <span class="radio_label">4</span>
+            <%= f.radio_button :rating,5 %> <span class="radio_label">5</span> <br>
+            <%= f.button 'Rate <i class="fa-solid fa-star"></i>'.html_safe,type: :submit,class:'btn rating_btn' %>
+
+        <% end %>
+
+      </div>
+      <% end %>
+
+
     </div>
   </div>
   <div class="mess_right_container">
@@ -47,6 +67,16 @@
         <p class="info_ps"> Uploaded by <span class="logo_color">	<%= link_to "@"+@mess.user.username,user_path(@mess.user) %></span></p>
       <% end %>
       <p class="info_ps price">₹<%= @mess.price %>/Person</p>
+
+      <% if @avg.ceil >=4 %>
+       <span class="badge green_rating_badge"><i class="fa-solid fa-star"></i> <%= @avg.ceil %> </span>
+        <% elsif @avg.ceil >=2 %>
+         <span class="badge green_rating_badge orange_rating"><i class="fa-solid fa-star"></i> <%= @avg.ceil %> </span>
+         <% else %>
+         <span class="badge green_rating_badge red_rating"><i class="fa-solid fa-star"></i> <%= @avg.ceil %> </span>
+
+      <% end %>
+
       <% if !logged_in? %>
         <div class="error_for_not_login">
           <p class="info_ps">Signin to contact the owner <%= link_to 'Signin',signin_path %></p>
@@ -77,6 +107,7 @@
     <%= link_to 'signin to review', signin_path , class:'btn'%>
   <% end %>
 </div>
+
 
 
 <div class="all_reviews_container">
@@ -117,3 +148,7 @@
 <% end %>
 
 </div>
+
+
+
+<%= @avg.to_i %>
