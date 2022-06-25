@@ -17,7 +17,7 @@
       <p> <span class="badge"><b><i class="fa-solid fa-city"></i> City:</b></span>  <%= @mess.city.capitalize %> </p>
       <p> <span class="badge"><b> <i class="fa-solid fa-landmark"></i> Landmark:</b></span>  <%= @mess.landmark.capitalize %> </p>
       <br>
-      <h2>Mess For</h2><br>
+      <h2 class="logo_color">Mess For</h2><br>
       <% if @mess.service_boys_only %>
 
       		 <span class="badge serboy"><b><i class="fa-solid fa-mars"></i> Service boys</b></span>
@@ -83,8 +83,17 @@
         </div>
       <% else %>
         <% if @mess.user %>
+
+          <% if @mess.room_available %>
+            
           <a href="tel:<%= @mess.user.phone %>" class='btn info_btn callbtn'><i class="fa-solid fa-phone"></i> Call the owner</a>
           <a href="mailto:<%= @mess.user.email %>" class='btn info_btn light_btn'><i class="fa-solid fa-envelope"></i> Email the owner</a>
+          <% else %>
+          <div class="error_for_not_login">
+            
+            <h3 class="logo_color" align="center"> <i class="fa-solid fa-circle-xmark"></i> Rooms are not available now</h3>
+          </div>
+          <% end %>
 
           <% if @mess.user.eql?(current_user) || admin_user %>
               <%= link_to '<i class="fa-solid fa-pen-to-square"></i> Edit info'.html_safe,edit_mess_path,class:'btn info_btn light_btn editbtn'  %>
