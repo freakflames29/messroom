@@ -61,13 +61,26 @@ class WelcomeController < ApplicationController
         render 'search'
 
       elsif boys_or_girls.eql?('service girls')
+        if Rails.env.production? 
         
-        @search = Mess.where('landmark LIKE ? and city LIKE ? and price between ? and ? and service_girls_only = 1','%'+landmark+'%','%'+city+'%',min_price,max_price) 
+        @search = Mess.where('landmark LIKE ? and city LIKE ? and price between ? and ? and service_girls_only = true','%'+landmark+'%','%'+city+'%',min_price,max_price) 
         render 'search'
+      else
+         @search = Mess.where('landmark LIKE ? and city LIKE ? and price between ? and ? and service_girls_only = 1','%'+landmark+'%','%'+city+'%',min_price,max_price) 
+        render 'search'
+        end
 
       elsif boys_or_girls.eql?('student girls')
-        @search = Mess.where('landmark LIKE ? and city LIKE ? and price between ? and ? and student_girls_only = 1','%'+landmark+'%','%'+city+'%',min_price,max_price)
-        render 'search'
+
+      if Rails.env.production? 
+          @search = Mess.where('landmark LIKE ? and city LIKE ? and price between ? and ? and student_girls_only = true','%'+landmark+'%','%'+city+'%',min_price,max_price)
+          render 'search'
+        else
+          @search = Mess.where('landmark LIKE ? and city LIKE ? and price between ? and ? and student_girls_only = 1','%'+landmark+'%','%'+city+'%',min_price,max_price)
+          render 'search'
+        end
+
+
 
       elsif boys_or_girls.eql?('student boys')
         @search = Mess.where('landmark LIKE ? and city LIKE ? and price between ? and ? and student_boys_only = 1','%'+landmark+'%','%'+city+'%',min_price,max_price)
