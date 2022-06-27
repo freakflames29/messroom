@@ -56,9 +56,15 @@ class WelcomeController < ApplicationController
     else
 
       if boys_or_girls.eql?('service boys')
+        if Rails.env.production? 
+        @search = Mess.where('landmark LIKE ? and city LIKE ? and price between ? and ? and service_boys_only = true','%'+landmark+'%','%'+city+'%',min_price,max_price)
+
+        render 'search'
+      else
         @search = Mess.where('landmark LIKE ? and city LIKE ? and price between ? and ? and service_boys_only = 1','%'+landmark+'%','%'+city+'%',min_price,max_price)
 
         render 'search'
+      end
 
       elsif boys_or_girls.eql?('service girls')
         if Rails.env.production? 
@@ -83,8 +89,13 @@ class WelcomeController < ApplicationController
 
 
       elsif boys_or_girls.eql?('student boys')
-        @search = Mess.where('landmark LIKE ? and city LIKE ? and price between ? and ? and student_boys_only = 1','%'+landmark+'%','%'+city+'%',min_price,max_price)
-        render 'search'
+        if Rails.env.production? 
+          @search = Mess.where('landmark LIKE ? and city LIKE ? and price between ? and ? and student_boys_only = true','%'+landmark+'%','%'+city+'%',min_price,max_price)
+          render 'search'
+        else
+           @search = Mess.where('landmark LIKE ? and city LIKE ? and price between ? and ? and student_boys_only = 1','%'+landmark+'%','%'+city+'%',min_price,max_price)
+          render 'search'
+      end
 
       end
 
