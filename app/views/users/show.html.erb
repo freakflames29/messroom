@@ -11,9 +11,13 @@
 		<% if @user.is_owner %>
 				<h2 class="logo_color"><i class="fa-solid fa-crown" title="owner badge"></i> <%= @user.name.capitalize %> </h2> 
 				<% if admin_user %>
-					<br>
-					<h4 class="badge admin_badge"> <i class="fa-solid fa-fire"></i> You are admin 
-					</h4><br>	
+					<% if User.find(params[:id]).eql?(admin_user_profile) %>
+						<br>
+						<h4 class="badge admin_badge"> <i class="fa-solid fa-fire"></i> You are admin 
+					</h4>
+					<br>	
+						
+					<% end %>
 							
 				<% end %>
 
