@@ -18,5 +18,7 @@ class Mess < ApplicationRecord
 	validates :title, presence: true
 
 	validates :images,presence: true
+
+	
 end
 	

@@ -13,6 +13,8 @@ class MessesController < ApplicationController
 
   def create
     @mess = Mess.new filter_params
+    @mess.city = @mess.city.downcase
+    @mess.state = @mess.state.downcase
     @mess.user_id = current_user.id
     puts "------------------------------_____________________$#{@mess.images.size}$-------"
     if @mess.valid?
