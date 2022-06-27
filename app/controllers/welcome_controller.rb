@@ -95,8 +95,17 @@ class WelcomeController < ApplicationController
         else
            @search = Mess.where('landmark LIKE ? and city LIKE ? and price between ? and ? and student_boys_only = 1','%'+landmark+'%','%'+city+'%',min_price,max_price)
           render 'search'
-      end
+        end
 
+      elsif boys_or_girls.eql?('all')
+        if Rails.env.production? 
+          @search = Mess.where('landmark LIKE ? and city LIKE ? and price between ? and ? and for_all = true','%'+landmark+'%','%'+city+'%',min_price,max_price)
+          render 'search'
+        else
+           @search = Mess.where('landmark LIKE ? and city LIKE ? and price between ? and ? and for_all = 1','%'+landmark+'%','%'+city+'%',min_price,max_price)
+          render 'search'
+        end
+        
       end
 
    end
