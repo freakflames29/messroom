@@ -1,7 +1,11 @@
 <div class="header">
 	<h1 class="logo_color">Creators of MessRoom</h1>
 </div>
-
+<% if Rails.env.production? %>
+	<h1>IT IS PRODUCTION</h1>
+	<% elsif Rails.env.development? %>
+	<h2>IT IS DEVELOPMENTs</h2>
+<% end %>
 
 
 
