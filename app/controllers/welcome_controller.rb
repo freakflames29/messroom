@@ -6,8 +6,8 @@ class WelcomeController < ApplicationController
 
   def search
 
-    landmark = params[:search][:landmark]
-    city = params[:search][:city]
+    landmark = params[:search][:landmark].downcase
+    city = params[:search][:city].downcase
 
     # render plain:params[:search][:landmark]
 
@@ -40,11 +40,11 @@ class WelcomeController < ApplicationController
   end
 
   def advance_search
-    landmark = params[:search][:landmark]
-    city = params[:search][:city]
+    landmark = params[:search][:landmark].downcase
+    city = params[:search][:city].downcase
     min_price = params[:search][:min_price]
     max_price = params[:search][:max_price]
-    boys_or_girls = params[:search][:boys_or_girls]
+    boys_or_girls = params[:search][:boys_or_girls].downcase
 
     # render plain:params[:search]
 
