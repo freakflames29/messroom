@@ -13,10 +13,16 @@
 # Randomdb.create! name:"mirabel",price: 400,location:'spain',mtype:'5bhk'
 # Randomdb.create! name:"sourav",price: 500,location:'mumbai',mtype:'2bhk'
 
-Rating.create!({user:User.find(2),mess:Mess.find(16),rating:4})
-Rating.create!({user:User.find(3),mess:Mess.find(16),rating:2})
-Rating.create!({user:User.find(4),mess:Mess.find(16),rating:3})
-Rating.create!({user:User.find(5),mess:Mess.find(16),rating:4})
-Rating.create!({user:User.find(7),mess:Mess.find(16),rating:5})
-Rating.create!({user:User.find(9),mess:Mess.find(16),rating:4})
-Rating.create!({user:User.find(10),mess:Mess.find(16),rating:3})
+# Rating.create!({user:User.find(2),mess:Mess.find(16),rating:4})
+# Rating.create!({user:User.find(3),mess:Mess.find(16),rating:2})
+# Rating.create!({user:User.find(4),mess:Mess.find(16),rating:3})
+# Rating.create!({user:User.find(5),mess:Mess.find(16),rating:4})
+# Rating.create!({user:User.find(7),mess:Mess.find(16),rating:5})
+# Rating.create!({user:User.find(9),mess:Mess.find(16),rating:4})
+# Rating.create!({user:User.find(10),mess:Mess.find(16),rating:3})
+
+Mess.all.each do |m|
+	m.city = m.city.downcase
+	m.state = m.state.downcase
+	m.save
+end
