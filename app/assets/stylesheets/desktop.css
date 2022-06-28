@@ -116,6 +116,12 @@ a{
 	flex-direction: column;
 	border-radius: 0 0 50% 60% / 50px;
 
+	background-image: url('https://i.pinimg.com/originals/04/21/43/042143ce20dae5b2bdd688f664cc6873.jpg');
+	/*background-image: url('https://i.pinimg.com/236x/e2/d7/2c/e2d72cc2bfd5fc5f662d236e2c9fb1c0--adult-coloring-pages-city-coloring-pages.jpg');*/
+    background-size: contain;
+    /* opacity: 1.5; */
+    background-blend-mode: multiply;
+
 }
 .hero_container h1
 {
