@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   post 'contact',to:'contact#create'
   get 'contact/show'
 
+  get 'showdb' ,to:'random#find'
 
 
   # get 'reviews/new'
