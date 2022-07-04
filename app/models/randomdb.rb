@@ -1,2 +1,0 @@
-class Randomdb < ApplicationRecord
-end
