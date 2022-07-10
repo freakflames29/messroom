@@ -22,6 +22,12 @@
   </head>
 
   <body>
+   <% a = request.base_url+request.path %>
+   <% b = root_url%>
+    <% if a.eql?(b) %>
+    <%= render 'layouts/partials/hero' %>
+      
+    <% end %>
     <div class="blackdiv hide" id="blckdiv"></div>
     <%= render 'layouts/partials/nav' %>
 
@@ -36,6 +42,7 @@
     <!-- <button id="float_search_btn"><i class="fa-solid fa-magnifying-glass"></i></button> -->
 
     <%= render 'layouts/partials/footer' %>
+    
 
     <%= javascript_pack_tag 'myjs' %>
     <%= javascript_pack_tag 'flash' %>

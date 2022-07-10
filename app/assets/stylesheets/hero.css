@@ -1,0 +1,95 @@
+.top_hero_container
+{
+
+			width:100% ;
+			min-height: 100vh;
+			/*background: #eee;*/
+			color: #fff;
+			background-size: cover;
+			/*background-color: #3e3a3a;*/
+			background-color: black;
+			/*background-image: url('https://raw.githubusercontent.com/freakflames29/php-signup-form/main/hero.jpg');*/
+			background-blend-mode: overlay;
+}
+.text
+{
+	/*margin-left: 32%;*/
+	padding-top: 10%;
+	display: flex;
+	justify-content: center;
+	align-content: center;
+	align-items: center;
+	flex-direction: column;
+
+}
+.text h1
+{
+	font-size: 9.4em;
+	font-family: 'Bebas Neue', cursive;
+	text-align: center;
+	line-height: 130px;
+
+	 background-image: linear-gradient(
+    -225deg,
+    yellow 0%,
+    blue 67%,
+    red	 29%,
+    /*#f80759 100%*/
+    #000 100%
+  );
+	-webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  transition: 0.25s ease;
+    animation: textclip 5s ease ;
+    background-size: 300% auto;
+		   /*transform: scale3d(15, 15, 10);*/
+		   animation-fill-mode: forwards;
+
+
+
+
+}
+
+@keyframes textclip{
+	to{
+		/* background-image: linear-gradient(
+		    -225deg,
+		    #EA384D 0%,
+
+		    #D31027	 29%,
+		    #f80759 67%,
+
+		    #F9D423 100%
+		  );*/
+		   background-position: 101% center;
+
+		   /*transform: scale3d(1, 1, 1);*/
+		   /*animation-play-state: paused;*/
+	}
+
+}
+.hero_btn
+{
+	margin-top: 10px;
+	font-size: 18px;
+	background: #fff;
+	color: #000;
+}
+.hero_btn:hover
+{
+	border: 1px solid #fff;
+	color: #fff;	
+}
+
+.scroll_down
+{
+	background: none;
+	border: none;
+	color: red;
+}
+.scroll_down:hover
+{
+	border: none;
+	transform: translateY(2px);
+}
