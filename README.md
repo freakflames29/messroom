@@ -1,24 +1,29 @@
-# README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# MessRoom
 
-Things you may want to cover:
+MessRoom is an online portal for searching and uploading messes.
 
-* Ruby version
+# Techlogies used
+1. Ruby On Rails 
+2. HTML
+3. CSS
+4. JS
+5. MySQL
 
-* System dependencies
+# Screenshot
 
-* Configuration
 
-* Database creation
 
-* Database initialization
 
-* How to run the test suite
+![App Screenshot](https://github.com/freakflames29/php-signup-form/blob/main/Screenshot%20from%202022-06-30%2021-50-34.png)
 
-* Services (job queues, cache servers, search engines, etc.)
+# view live
 
-* Deployment instructions
 
-* ...
+
+https://messroom.herokuapp.com/
+# Authors
+
+- [@Sourav Das](https://www.github.com/freakflames29)
+
+
