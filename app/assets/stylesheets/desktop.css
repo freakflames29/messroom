@@ -7,6 +7,8 @@
 	padding: 0;
 	box-sizing: border-box;
 	font-family: 'Roboto', sans-serif;
+	/*font-family: 'Bebas Neue', cursive;*/
+	
 	scroll-behavior: smooth;
 }
 
@@ -16,8 +18,10 @@
 	--color-black: #121212;
 	/*--blue-light: #26D0CE;*/
 	--blue-light: #f85032;
+	/*--blue-light: #fcb045;*/
 	/*--blue-dark:#1A2980 ;*/
 	--blue-dark:#e73827 ;
+	/*--blue-dark:#fd1d1d	 ;*/
 
 }
 
