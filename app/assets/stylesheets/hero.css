@@ -41,7 +41,7 @@
     /*#f80759 100%*/
     /*#28ffa6 10%*/
     /*#ffe52800 10%*/
-    #fcb045 20%
+    #ffdb51 20%
     /*blue 20%*/
     /*yellow 10%*/
   );
@@ -51,7 +51,7 @@
   -webkit-text-fill-color: transparent;
 
   transition: 0.25s ease;
-    animation: textclip 5s ease ;
+    animation: textclip 5s ease  ;
     background-size: 300% auto;
 		   animation-fill-mode: forwards;
 
