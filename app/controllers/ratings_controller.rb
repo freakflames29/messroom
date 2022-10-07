@@ -23,7 +23,7 @@ class RatingsController < ApplicationController
         flash[:win] = 'Rating successfull'
         redirect_to mess_path(@mess)
       else
-        flash[:fail] = 'Rating failed successfull'
+        flash[:fail] = 'Rating failed successfully'
         redirect_to mess_path(@mess)
 
       end
