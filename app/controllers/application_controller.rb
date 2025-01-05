@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   def current_user
     @current_user=nil
     if session[:user_id]
-      @current_user ||= User.find(session[:user_id]) 
+      @current_user ||= User.find(session[:user_id])
     end
     @current_user
   end
@@ -42,7 +42,7 @@ class ApplicationController < ActionController::Base
 
 
   def admin_user
-    if logged_in? and current_user.id.eql? 5
+    if logged_in? and current_user.id.eql? 1
       return true
     else
       return false
@@ -52,7 +52,7 @@ class ApplicationController < ActionController::Base
 
 
   def admin_user_profile
-    @admin=User.find 5
+    @admin=User.find 1
   end
 
 end

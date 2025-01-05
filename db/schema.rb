@@ -12,17 +12,17 @@
 
 ActiveRecord::Schema.define(version: 2022_06_23_135800) do
 
-  create_table "active_storage_attachments", charset: "utf8mb4", force: :cascade do |t|
+  create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
-    t.bigint "record_id", null: false
-    t.bigint "blob_id", null: false
+    t.integer "record_id", null: false
+    t.integer "blob_id", null: false
     t.datetime "created_at", null: false
     t.index ["blob_id"], name: "index_active_storage_attachments_on_blob_id"
     t.index ["record_type", "record_id", "name", "blob_id"], name: "index_active_storage_attachments_uniqueness", unique: true
   end
 
-  create_table "active_storage_blobs", charset: "utf8mb4", force: :cascade do |t|
+  create_table "active_storage_blobs", force: :cascade do |t|
     t.string "key", null: false
     t.string "filename", null: false
     t.string "content_type"
@@ -34,13 +34,13 @@ ActiveRecord::Schema.define(version: 2022_06_23_135800) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
-  create_table "active_storage_variant_records", charset: "utf8mb4", force: :cascade do |t|
-    t.bigint "blob_id", null: false
+  create_table "active_storage_variant_records", force: :cascade do |t|
+    t.integer "blob_id", null: false
     t.string "variation_digest", null: false
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
-  create_table "contacts", charset: "utf8mb4", force: :cascade do |t|
+  create_table "contacts", force: :cascade do |t|
     t.string "title"
     t.text "body"
     t.string "name"
@@ -49,7 +49,7 @@ ActiveRecord::Schema.define(version: 2022_06_23_135800) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "messes", charset: "utf8mb4", force: :cascade do |t|
+  create_table "messes", force: :cascade do |t|
     t.integer "price"
     t.string "city"
     t.string "state"
@@ -66,18 +66,18 @@ ActiveRecord::Schema.define(version: 2022_06_23_135800) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "title"
-    t.bigint "user_id"
+    t.integer "user_id"
     t.index ["user_id"], name: "index_messes_on_user_id"
   end
 
-  create_table "pins", charset: "utf8mb4", force: :cascade do |t|
+  create_table "pins", force: :cascade do |t|
     t.string "title"
     t.text "desc"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "randomdbs", charset: "utf8mb4", force: :cascade do |t|
+  create_table "randomdbs", force: :cascade do |t|
     t.string "name"
     t.integer "price"
     t.string "location"
@@ -86,9 +86,9 @@ ActiveRecord::Schema.define(version: 2022_06_23_135800) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "ratings", charset: "utf8mb4", force: :cascade do |t|
-    t.bigint "user_id", null: false
-    t.bigint "mess_id", null: false
+  create_table "ratings", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "mess_id", null: false
     t.integer "rating", default: 0
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -96,17 +96,17 @@ ActiveRecord::Schema.define(version: 2022_06_23_135800) do
     t.index ["user_id"], name: "index_ratings_on_user_id"
   end
 
-  create_table "reviews", charset: "utf8mb4", force: :cascade do |t|
+  create_table "reviews", force: :cascade do |t|
     t.text "body"
-    t.bigint "mess_id", null: false
-    t.bigint "user_id", null: false
+    t.integer "mess_id", null: false
+    t.integer "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["mess_id"], name: "index_reviews_on_mess_id"
     t.index ["user_id"], name: "index_reviews_on_user_id"
   end
 
-  create_table "users", charset: "utf8mb4", force: :cascade do |t|
+  create_table "users", force: :cascade do |t|
     t.string "username"
     t.string "email"
     t.string "password_digest"
