@@ -27,3 +27,11 @@ https://messroom.herokuapp.com/
 - [@Sourav Das](https://www.github.com/freakflames29)
 
 
+# Docker 
+Pull the image to view the app
+
+```
+docker pull freakflames2913/messroom:latest
+docker run -p 3000:3000 freakflames2913/messroom:latest
+```
+
