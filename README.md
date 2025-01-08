@@ -17,11 +17,6 @@ MessRoom is an online portal for searching and uploading messes.
 
 ![App Screenshot](https://github.com/freakflames29/php-signup-form/blob/main/Screenshot%20from%202022-06-30%2021-50-34.png)
 
-# view live
-
-
-
-https://messroom.herokuapp.com/
 # Authors
 
 - [@Sourav Das](https://www.github.com/freakflames29)
