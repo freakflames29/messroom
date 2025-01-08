@@ -18,5 +18,14 @@ module Findmess
     #
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
+
+    if ENV["ALLOWED_HOST"]
+
+      config.hosts << ENV["ALLOWED_HOST"]
+
+
+    else
+      config.hosts<< "messroom.onrender.com"
+    end
   end
 end
